@@ -6,3 +6,7 @@ export default {
   component: Input,
   title: 'Input',
 };
+
+const Template = () => <Input />;
+
+export const Default = Template.bind({});
