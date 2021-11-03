@@ -1,6 +1,6 @@
-import React from "react";
+import React, { ReactElement } from 'react';
 
-const ColorPicker = () => {
+const ColorPicker = (): ReactElement => {
   return <div></div>;
 };
 
