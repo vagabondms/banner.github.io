@@ -6,29 +6,28 @@ import React, {
   InputHTMLAttributes,
   ReactElement,
   useState,
+  CSSProperties,
 } from 'react';
 
 import styled from '@emotion/styled';
 
-interface IInputProp {
-  label?: string;
+export interface IInputProp {
+  name: string;
+  style: CSSProperties;
 }
 
 type TStyledInputProp = InputHTMLAttributes<Element>;
 
 const StyledInput = styled.input<TStyledInputProp>`
   border: none;
-  border-bottom: 1px solid brown;
   text-align: center;
-  font-size: 30px;
-
   :focus {
     outline: none;
     caret-color: transparent;
   }
 `;
 
-const Input = (props: IInputProp): ReactElement => {
+const Input = ({ name, style }: IInputProp): ReactElement => {
   const [inputValue, setInputValue] = useState<string>('');
   const [isPlaceHolder, setIsPlaceHolder] = useState<boolean>(true);
 
@@ -47,7 +46,9 @@ const Input = (props: IInputProp): ReactElement => {
   return (
     <StyledInput
       type="text"
-      placeholder={isPlaceHolder ? '제목을 입력하세요' : ''}
+      name={name}
+      style={{ ...style }}
+      placeholder={isPlaceHolder ? `${name}은 여기👇` : ''}
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
       onChange={onChangeHandler}
