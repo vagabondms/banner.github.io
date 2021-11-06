@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputBox from '@molecules/InputBox';
+import InputBox from '@organisms/InputBox';
 import { Meta } from '@storybook/react';
 
 export default {
