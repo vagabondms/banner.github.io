@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
   border: 0.5px solid lightgrey;
 `;
 
-const Divider = () => {
+const Divider = (): ReactElement => {
   return <StyledDiv></StyledDiv>;
 };
 
