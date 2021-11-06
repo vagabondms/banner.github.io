@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 interface ILabelProps {
   name: string;
   children: ReactNode;
-  style: CSSProperties;
+  style?: CSSProperties;
 }
 
 const StyledLabel = styled.label``;
