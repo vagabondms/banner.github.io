@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import useInputWithPlaceHolder from '@hooks/useInput';
 
 export interface IInputProp {
-  name: string;
-  style: CSSProperties;
+  name?: string;
+  style?: CSSProperties;
 }
 
 type TStyledInputProp = InputHTMLAttributes<Element>;
