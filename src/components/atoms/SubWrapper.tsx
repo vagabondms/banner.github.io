@@ -11,6 +11,7 @@ const StyledDivWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: 'center';
+  padding: 5px;
 `;
 
 const WrapperBox = ({ children }: IWrapperBoxProps): ReactElement => {

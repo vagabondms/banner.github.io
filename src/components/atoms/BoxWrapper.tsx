@@ -11,8 +11,9 @@ const StyledDivWrapper = styled.div`
   justify-content: space-around;
   align-items: 'center';
   width: 500px;
-  height: 100px;
+  height: 150px;
   border: 1px solid lightgrey;
+  padding: 10px;
 `;
 
 const BoxWrapper = ({ children }: IBoxWrapperProps): ReactElement => {
