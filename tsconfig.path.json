@@ -8,7 +8,9 @@
       "@utils/*": ["src/utils/*"],
       "@containers/*": ["src/containers/*"],
       "@atoms/*": ["src/components/atoms/*"],
-      "@molecules/*": ["src/molecules/*"],
+      "@molecules/*": ["src/components/molecules/*"],
+      "@organisms/*": ["src/components/organisms/*"],
+      "@stories/*": ["src/stories/*"],
       "@api": ["src/api"],
       "@/*": ["src/*"]
     }

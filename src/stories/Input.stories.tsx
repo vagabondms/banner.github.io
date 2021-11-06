@@ -1,8 +1,7 @@
 import React from 'react';
 
+import Input, { IInputProp } from '@atoms/Input';
 import { Story, Meta } from '@storybook/react';
-
-import Input, { IInputProp } from './Input';
 
 export default {
   component: Input,
