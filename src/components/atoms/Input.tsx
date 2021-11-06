@@ -1,15 +1,7 @@
-import React, {
-  ChangeEvent,
-  ChangeEventHandler,
-  ReactEventHandler,
-  FocusEventHandler,
-  InputHTMLAttributes,
-  ReactElement,
-  useState,
-  CSSProperties,
-} from 'react';
+import React, { InputHTMLAttributes, ReactElement, CSSProperties } from 'react';
 
 import styled from '@emotion/styled';
+import useInputWithPlaceHolder from '@hooks/useInput';
 
 export interface IInputProp {
   name: string;
@@ -28,33 +20,9 @@ const StyledInput = styled.input<TStyledInputProp>`
 `;
 
 const Input = ({ name, style }: IInputProp): ReactElement => {
-  const [inputValue, setInputValue] = useState<string>('');
-  const [isPlaceHolder, setIsPlaceHolder] = useState<boolean>(true);
+  const inputProps = useInputWithPlaceHolder(`${name}은 여기👇`);
 
-  const onChangeHandler: ChangeEventHandler = (e: ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(e.target.value);
-  };
-
-  const onFocusHandler: FocusEventHandler = (): void => {
-    setIsPlaceHolder(false);
-  };
-
-  const onBlurHandler: ReactEventHandler = (): void => {
-    setIsPlaceHolder(true);
-  };
-
-  return (
-    <StyledInput
-      type="text"
-      name={name}
-      style={{ ...style }}
-      placeholder={isPlaceHolder ? `${name}은 여기👇` : ''}
-      onFocus={onFocusHandler}
-      onBlur={onBlurHandler}
-      onChange={onChangeHandler}
-      value={inputValue}
-    />
-  );
+  return <StyledInput type="text" name={name} style={{ ...style }} {...inputProps} />;
 };
 
 export default Input;
