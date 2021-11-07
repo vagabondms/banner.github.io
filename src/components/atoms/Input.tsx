@@ -6,6 +6,8 @@ import useInputWithPlaceHolder from '@hooks/useInput';
 export interface IInputProp {
   name?: string;
   style?: CSSProperties;
+  placeHolder: string;
+  type: 'number' | 'text';
 }
 
 type TStyledInputProp = InputHTMLAttributes<Element>;
@@ -19,10 +21,10 @@ const StyledInput = styled.input<TStyledInputProp>`
   }
 `;
 
-const Input = ({ name, style }: IInputProp): ReactElement => {
-  const inputProps = useInputWithPlaceHolder(`${name}은 여기👇`);
+const Input = ({ name, style, placeHolder, type }: IInputProp): ReactElement => {
+  const inputProps = useInputWithPlaceHolder(placeHolder);
 
-  return <StyledInput type="text" id={name} style={{ ...style }} {...inputProps} />;
+  return <StyledInput type={type} id={name} style={{ ...style }} {...inputProps} />;
 };
 
 export default Input;

@@ -13,12 +13,12 @@ const InputBox = (): ReactElement => {
   return (
     <LabeledBoxWrapper name="TEXT">
       <SubWrapper>
-        <LabeledInput name="제목" style={titleStyle}></LabeledInput>
+        <LabeledInput name="제목" type="text" style={titleStyle} placeHolder="제목을 입력하세요"></LabeledInput>
       </SubWrapper>
       <Divider />
       <SubWrapper>
-        <LabeledInput name="부제목" style={subTitleStyle}></LabeledInput>
-        <LabeledInput name="태그" style={tagStyle}></LabeledInput>
+        <LabeledInput name="부제목" type="text" style={subTitleStyle} placeHolder="부제목을 입력하세요"></LabeledInput>
+        <LabeledInput name="태그" type="text" style={tagStyle} placeHolder="태그를 입력하세요"></LabeledInput>
       </SubWrapper>
     </LabeledBoxWrapper>
   );

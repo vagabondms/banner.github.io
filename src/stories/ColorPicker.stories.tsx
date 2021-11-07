@@ -8,6 +8,6 @@ export default {
   title: 'ColorPicker',
 } as Meta;
 
-const Template = () => <ColorPicker />;
+const Template = () => <ColorPicker name="default" />;
 
 export const Default = Template.bind({});

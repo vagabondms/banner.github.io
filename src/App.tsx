@@ -1,11 +1,16 @@
 import React from 'react';
 
-import Canvas from './components/atoms/Canvas';
+// import Canvas from './components/atoms/Canvas';
+import BackgroundBox from '@organisms/BackgroundBox';
+import FontBox from '@organisms/FontBox';
+import InputBox from '@organisms/InputBox';
 
 function App() {
   return (
     <>
-      <Canvas />
+      <InputBox></InputBox>
+      <FontBox></FontBox>
+      <BackgroundBox />
     </>
   );
 }

@@ -18,6 +18,7 @@ const StyledInnerDiv = styled.div`
 `;
 
 const StyledPopoverDiv = styled.div`
+  margin-top: 40px;
   position: absolute;
   z-index: 2;
 `;
