@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-// import Canvas from './components/atoms/Canvas';
+import Button from '@atoms/Button';
+import Canvas from '@atoms/Canvas';
+import { Layout } from '@atoms/Layout';
 import BackgroundBox from '@organisms/BackgroundBox';
 import FontBox from '@organisms/FontBox';
 import InputBox from '@organisms/InputBox';
 
-function App() {
+const App = (): ReactElement => {
+  // context를 사용해서 canvas와 각각의 Box에 value를 주입해야함.
   return (
-    <>
-      <InputBox></InputBox>
-      <FontBox></FontBox>
-      <BackgroundBox />
-    </>
+    <Layout>
+      <Layout style={{ backgroundColor: 'white', width: 600 }}>
+        <Canvas></Canvas>
+        <InputBox></InputBox>
+        <FontBox></FontBox>
+        <BackgroundBox />
+        <Button text="Download" onClick={() => {}}></Button>
+      </Layout>
+    </Layout>
   );
-}
+};
 
 export default App;

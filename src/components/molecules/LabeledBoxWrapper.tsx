@@ -14,12 +14,13 @@ const StyledDiv = styled.div`
   flex-direction: column;
   color: black;
   margin: 10px;
+  background-color: white;
 `;
 
 const LabeledBoxWrapper = ({ name, children }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
-      <Label name={name} style={{ fontSize: 30 }}>
+      <Label name={name} style={{ fontSize: 20 }}>
         {name}
       </Label>
       <BoxWrapper name={name}>{children}</BoxWrapper>

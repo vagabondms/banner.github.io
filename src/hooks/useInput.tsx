@@ -1,4 +1,19 @@
-import { ChangeEvent, ChangeEventHandler, ReactEventHandler, FocusEventHandler, useState } from 'react';
+import React, {
+  ChangeEvent,
+  ChangeEventHandler,
+  ReactEventHandler,
+  FocusEventHandler,
+  useState,
+  useContext,
+  createContext,
+  ReactElement,
+} from 'react';
+
+// const InputContext = createContext('');
+
+// export const InputProvider = ({ children }: { children: ReactElement }) => {
+//   return <InputContext.Provider>{children}</InputContext.Provider>;
+// };
 
 const useInputWithPlaceHolder = (
   initialPlaceholder: string,
