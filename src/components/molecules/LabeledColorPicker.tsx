@@ -1,12 +1,11 @@
 import React, { CSSProperties, ReactElement } from 'react';
 
-import Input from '@atoms/Input';
+import ColorPicker from '@atoms/ColorPicker';
 import Label from '@atoms/Label';
 import styled from '@emotion/styled';
 
 interface ILabeledInputProps {
   name: string;
-  style: CSSProperties;
 }
 
 const StyledDiv = styled.div`
@@ -15,13 +14,12 @@ const StyledDiv = styled.div`
   color: black;
   margin: 10px;
 `;
-const LabeledInput = ({ name, style }: ILabeledInputProps): ReactElement => {
+
+const LabeledInput = ({ name }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
-      <Label name={name} style={{ fontSize: (style.fontSize as number) - 3 }}>
-        {name}
-      </Label>
-      <Input name={name} style={style}></Input>
+      <Label name={name}>{name}</Label>
+      <ColorPicker name={name}></ColorPicker>
     </StyledDiv>
   );
 };
