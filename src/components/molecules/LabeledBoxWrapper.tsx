@@ -19,7 +19,7 @@ const StyledDiv = styled.div`
 const LabeledBoxWrapper = ({ name, children }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
-      <Label name={name} style={{ fontSize: 40 }}>
+      <Label name={name} style={{ fontSize: 30 }}>
         {name}
       </Label>
       <BoxWrapper name={name}>{children}</BoxWrapper>
