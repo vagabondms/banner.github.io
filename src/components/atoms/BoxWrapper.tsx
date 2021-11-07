@@ -11,7 +11,6 @@ const StyledDivWrapper = styled.div`
   justify-content: space-around;
   align-items: 'center';
   width: 500px;
-  height: 150px;
   border: 1px solid lightgrey;
   padding: 10px;
 `;

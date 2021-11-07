@@ -22,7 +22,7 @@ const StyledInput = styled.input<TStyledInputProp>`
 const Input = ({ name, style }: IInputProp): ReactElement => {
   const inputProps = useInputWithPlaceHolder(`${name}은 여기👇`);
 
-  return <StyledInput type="text" name={name} style={{ ...style }} {...inputProps} />;
+  return <StyledInput type="text" id={name} style={{ ...style }} {...inputProps} />;
 };
 
 export default Input;
