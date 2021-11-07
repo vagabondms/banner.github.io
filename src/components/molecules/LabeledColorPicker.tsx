@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import ColorPicker from '@atoms/ColorPicker';
 import Label from '@atoms/Label';

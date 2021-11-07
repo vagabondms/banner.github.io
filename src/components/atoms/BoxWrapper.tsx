@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 
 export interface IBoxWrapperProps {
   children: ReactElement | ReactElement[];
+  name?: string;
 }
 
 const StyledDivWrapper = styled.div`
@@ -15,8 +16,8 @@ const StyledDivWrapper = styled.div`
   padding: 10px;
 `;
 
-const BoxWrapper = ({ children }: IBoxWrapperProps): ReactElement => {
-  return <StyledDivWrapper>{children}</StyledDivWrapper>;
+const BoxWrapper = ({ children, name }: IBoxWrapperProps): ReactElement => {
+  return <StyledDivWrapper id={name}>{children}</StyledDivWrapper>;
 };
 
 export default BoxWrapper;

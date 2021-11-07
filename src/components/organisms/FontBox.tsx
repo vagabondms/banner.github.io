@@ -1,15 +1,15 @@
 import React, { ReactElement } from 'react';
 
-import BoxWrapper from '@atoms/BoxWrapper';
 import Divider from '@atoms/Divider';
 import SubWrapper from '@atoms/SubWrapper';
+import LabeledBoxWrapper from '@molecules/LabeledBoxWrapper';
 import LabeledColorPicker from '@molecules/LabeledColorPicker';
 import LabeledSelector from '@molecules/LabeledSelector';
 import { fontSizeGenerator, fontGenerator } from '@utils/data';
 
 const FontBox = (): ReactElement => {
   return (
-    <BoxWrapper>
+    <LabeledBoxWrapper name="FONT">
       <SubWrapper>
         <LabeledSelector name="폰트" options={fontGenerator()}></LabeledSelector>
       </SubWrapper>
@@ -21,7 +21,7 @@ const FontBox = (): ReactElement => {
       <SubWrapper>
         <LabeledColorPicker name="색상"></LabeledColorPicker>
       </SubWrapper>
-    </BoxWrapper>
+    </LabeledBoxWrapper>
   );
 };
 

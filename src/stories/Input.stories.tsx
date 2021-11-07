@@ -10,8 +10,6 @@ export default {
 
 const Template: Story<IInputProp> = (args: IInputProp) => <Input {...args} />;
 
-export const Default = Template.bind({});
-
 export const Title = Template.bind({});
 Title.args = {
   name: '제목',
