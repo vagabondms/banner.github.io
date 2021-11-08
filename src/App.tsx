@@ -20,6 +20,7 @@ const App = (): ReactElement => {
           <FontBox></FontBox>
           <BackgroundBox />
         </Provider>
+
         <Button text="Download" onClick={() => {}}></Button>
       </Layout>
     </Layout>
