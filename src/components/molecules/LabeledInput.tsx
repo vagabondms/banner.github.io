@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement } from 'react';
+import React, { CSSProperties, ReactElement, ReactEventHandler } from 'react';
 
 import Input from '@atoms/Input';
 import Label from '@atoms/Label';
@@ -7,8 +7,10 @@ import styled from '@emotion/styled';
 interface ILabeledInputProps {
   name: string;
   style?: CSSProperties;
-  placeHolder: string;
+  placeholder: string;
   type: 'text' | 'number';
+  value: string;
+  onChange: ReactEventHandler;
 }
 
 const StyledDiv = styled.div`
@@ -17,13 +19,13 @@ const StyledDiv = styled.div`
   color: black;
   margin: 10px;
 `;
-const LabeledInput = ({ name, style, placeHolder, type }: ILabeledInputProps): ReactElement => {
+const LabeledInput = ({ name, style, ...rest }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
       <Label name={name} style={{ fontSize: (style?.fontSize as number) - 3 }}>
         {name}
       </Label>
-      <Input name={name} style={style} type={type} placeHolder={placeHolder}></Input>
+      <Input name={name} style={style} {...rest}></Input>
     </StyledDiv>
   );
 };

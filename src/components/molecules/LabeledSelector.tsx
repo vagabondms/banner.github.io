@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import Label from '@atoms/Label';
 import Selector from '@atoms/Selector';
