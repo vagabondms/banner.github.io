@@ -1,5 +1,6 @@
-import React, { useContext, createContext, ReactElement, useState, ReactEventHandler, ChangeEvent } from 'react';
+import React, { useContext, createContext, ReactElement, ReactEventHandler, ChangeEvent } from 'react';
 
+import useInput from './useInput';
 export interface IProviderProps {
   children: ReactElement[];
 }
@@ -41,27 +42,11 @@ const dataContext = createContext<IContext>({
 });
 
 export const Provider = ({ children }: IProviderProps): ReactElement => {
-  const [title, setTitle] = useState('');
-  const [subTitle, setSubTitle] = useState('');
-  const [tag, setTag] = useState('');
-  const [height, setHeight] = useState('');
-  const [width, setWidth] = useState('');
-
-  const onTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value);
-  };
-  const onSubTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSubTitle(e.target.value);
-  };
-  const onTagChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTag(e.target.value);
-  };
-  const onHeightChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setHeight(e.target.value);
-  };
-  const onWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setWidth(e.target.value);
-  };
+  const [title, onTitleChange] = useInput('');
+  const [subTitle, onSubTitleChange] = useInput('');
+  const [tag, onTagChange] = useInput('');
+  const [height, onHeightChange] = useInput('');
+  const [width, onWidthChange] = useInput('');
 
   const value = {
     title,

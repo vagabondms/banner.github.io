@@ -1,21 +1,15 @@
-import React, { ReactNode, ReactElement, CSSProperties } from 'react';
+import React, { memo, ReactNode, ReactElement, LabelHTMLAttributes } from 'react';
 
 import styled from '@emotion/styled';
 
-interface ILabelProps {
-  name: string;
+interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   children: ReactNode;
-  style?: CSSProperties;
 }
 
 const StyledLabel = styled.label``;
 
-const Label = ({ name, children, ...rest }: ILabelProps): ReactElement => {
-  return (
-    <StyledLabel htmlFor={name} {...rest}>
-      {children}
-    </StyledLabel>
-  );
+const Label = ({ children, ...rest }: ILabelProps): ReactElement => {
+  return <StyledLabel {...rest}>{children}</StyledLabel>;
 };
 
-export default Label;
+export default memo(Label);

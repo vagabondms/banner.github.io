@@ -11,10 +11,9 @@ const StyledDivWrapper = styled.div<IBoxWrapperProps>`
   display: flex;
   justify-content: space-around;
   align-items: center;
-
   width: 500px;
   border: 1px solid lightgrey;
-  padding: 10px;
+  padding: 5px;
 `;
 
 const BoxWrapper = ({ children, name, ...rest }: IBoxWrapperProps): ReactElement => {

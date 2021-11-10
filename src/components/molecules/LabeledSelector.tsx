@@ -18,8 +18,8 @@ const StyledDiv = styled.div`
 const LabeledSelector = ({ name, options }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
-      <Label name={name}>{name}</Label>
-      <Selector name={name} options={options}></Selector>
+      <Label htmlFor={name}>{name}</Label>
+      <Selector id={name} options={options}></Selector>
     </StyledDiv>
   );
 };

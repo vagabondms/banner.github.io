@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
 const LabeledInput = ({ name }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
-      <Label name={name}>{name}</Label>
+      <Label htmlFor={name}>{name}</Label>
       <ColorPicker name={name}></ColorPicker>
     </StyledDiv>
   );

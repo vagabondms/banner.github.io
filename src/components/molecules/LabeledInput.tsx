@@ -3,7 +3,7 @@ import React, { CSSProperties, ReactElement, ReactEventHandler } from 'react';
 import Input from '@atoms/Input';
 import Label from '@atoms/Label';
 import styled from '@emotion/styled';
-import { useData } from '@hooks/useContext';
+
 interface ILabeledInputProps {
   name: string;
   style?: CSSProperties;
@@ -20,14 +20,12 @@ const StyledDiv = styled.div`
   margin: 10px;
 `;
 const LabeledInput = ({ name, style, ...rest }: ILabeledInputProps): ReactElement => {
-  // 여기에서 동적으로 가져올 수 있는 방법 생각해보기
-
   return (
     <StyledDiv>
-      <Label name={name} style={{ fontSize: (style?.fontSize as number) - 3 }}>
+      <Label htmlFor={name} style={{ fontSize: (style?.fontSize as number) - 3 }}>
         {name}
       </Label>
-      <Input name={name} style={style} {...rest}></Input>
+      <Input id={name} style={style} {...rest}></Input>
     </StyledDiv>
   );
 };

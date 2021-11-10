@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, SelectHTMLAttributes } from 'react';
 
 import styled from '@emotion/styled';
-export interface ISelectorProps {
+
+export interface ISelectorProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: (string | number)[];
-  name: string;
 }
 
 const StyledSelect = styled.select`
@@ -11,9 +11,9 @@ const StyledSelect = styled.select`
 `;
 const StyledOption = styled.option``;
 
-const Selector = ({ options, name }: ISelectorProps): ReactElement => {
+const Selector = ({ options, ...rest }: ISelectorProps): ReactElement => {
   return (
-    <StyledSelect name={name}>
+    <StyledSelect {...rest}>
       {options.map((option) => {
         return (
           <StyledOption key={option} value={option}>
