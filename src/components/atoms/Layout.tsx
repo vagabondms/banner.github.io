@@ -12,8 +12,8 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   margin: auto;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #5ec59a67;
   padding: 30px;
 `;

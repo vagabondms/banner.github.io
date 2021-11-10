@@ -45,8 +45,8 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
   const [title, onTitleChange] = useInput('');
   const [subTitle, onSubTitleChange] = useInput('');
   const [tag, onTagChange] = useInput('');
-  const [height, onHeightChange] = useInput('');
-  const [width, onWidthChange] = useInput('');
+  const [height, onHeightChange] = useInput('300');
+  const [width, onWidthChange] = useInput('700');
 
   const value = {
     title,
