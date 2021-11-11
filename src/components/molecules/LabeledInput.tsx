@@ -22,9 +22,7 @@ const StyledDiv = styled.div`
 const LabeledInput = ({ name, style, ...rest }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
-      <Label htmlFor={name} style={{ fontSize: (style?.fontSize as number) - 3 }}>
-        {name}
-      </Label>
+      <Label htmlFor={name}>{name}</Label>
       <Input id={name} style={style} {...rest}></Input>
     </StyledDiv>
   );

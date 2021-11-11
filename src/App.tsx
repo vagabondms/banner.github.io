@@ -1,19 +1,17 @@
 import React, { ReactElement } from 'react';
 
 import Button from '@atoms/Button';
-import Canvas from '@atoms/Canvas';
 import { Layout } from '@atoms/Layout';
-import { Provider } from '@hooks/useContext';
+import Preview from '@atoms/Preview';
+import { Provider } from '@hooks/useData';
 import BackgroundBox from '@organisms/BackgroundBox';
-import FontBox from '@organisms/FontBox';
 import InputBox from '@organisms/InputBox';
 const App = (): ReactElement => {
   return (
     <Layout>
       <Provider>
-        <Canvas></Canvas>
+        <Preview></Preview>
         <InputBox></InputBox>
-        <FontBox></FontBox>
         <BackgroundBox />
       </Provider>
       <Button text="Download" onClick={() => {}}></Button>
