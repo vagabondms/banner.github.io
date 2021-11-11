@@ -1,9 +1,11 @@
-import React, { ReactElement, SelectHTMLAttributes } from 'react';
+import React, { ReactElement, ReactEventHandler, SelectHTMLAttributes } from 'react';
 
 import styled from '@emotion/styled';
 
 export interface ISelectorProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: (string | number)[];
+  value: string;
+  onChange: ReactEventHandler;
 }
 
 const StyledSelect = styled.select`

@@ -1,6 +1,6 @@
 export const fontSizeGenerator = (): number[] => {
   const result = [];
-  for (let i = 2; i <= 30; i += 2) {
+  for (let i = 20; i <= 100; i += 5) {
     result.push(i);
   }
   return result;

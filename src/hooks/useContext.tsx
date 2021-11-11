@@ -11,11 +11,16 @@ interface IContext {
   tag: string;
   height: string;
   width: string;
+  font: string;
+  fontSize: string;
+
   onTitleChange: ReactEventHandler;
   onSubTitleChange: ReactEventHandler;
   onTagChange: ReactEventHandler;
   onWidthChange: ReactEventHandler;
   onHeightChange: ReactEventHandler;
+  onFontChange: ReactEventHandler;
+  onFontSizeChange: ReactEventHandler;
 }
 
 const dataContext = createContext<IContext>({
@@ -24,6 +29,8 @@ const dataContext = createContext<IContext>({
   tag: '',
   height: '',
   width: '',
+  font: '',
+  fontSize: '',
   onTitleChange: (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e);
   },
@@ -39,6 +46,12 @@ const dataContext = createContext<IContext>({
   onHeightChange: (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e);
   },
+  onFontChange: (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e);
+  },
+  onFontSizeChange: (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e);
+  },
 });
 
 export const Provider = ({ children }: IProviderProps): ReactElement => {
@@ -47,18 +60,23 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
   const [tag, onTagChange] = useInput('');
   const [height, onHeightChange] = useInput('300');
   const [width, onWidthChange] = useInput('700');
-
+  const [font, onFontChange] = useInput('font1');
+  const [fontSize, onFontSizeChange] = useInput('20');
   const value = {
     title,
     subTitle,
     tag,
     width,
     height,
+    font,
+    fontSize,
     onTitleChange,
     onSubTitleChange,
     onTagChange,
     onHeightChange,
     onWidthChange,
+    onFontChange,
+    onFontSizeChange,
   };
 
   return <dataContext.Provider value={value}>{children}</dataContext.Provider>;
