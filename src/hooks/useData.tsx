@@ -1,5 +1,7 @@
 import React, { useContext, createContext, ReactElement, ReactEventHandler, ChangeEvent } from 'react';
+import { ColorChangeHandler } from 'react-color';
 
+import useColor from './useColor';
 import useInput from './useInput';
 export interface IProviderProps {
   children: ReactElement[];
@@ -12,13 +14,16 @@ interface IContext {
   height: string;
   width: string;
   font: string;
-
+  backgroundColor: string;
+  fontColor: string;
   onTitleChange: ReactEventHandler;
   onSubTitleChange: ReactEventHandler;
   onTagChange: ReactEventHandler;
   onWidthChange: ReactEventHandler;
   onHeightChange: ReactEventHandler;
   onFontChange: ReactEventHandler;
+  onFontColorChange: ColorChangeHandler;
+  onBackgroundColorChange: ColorChangeHandler;
 }
 
 const dataContext = createContext<IContext>({
@@ -28,7 +33,8 @@ const dataContext = createContext<IContext>({
   height: '',
   width: '',
   font: '',
-
+  fontColor: '',
+  backgroundColor: '',
   onTitleChange: (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e);
   },
@@ -47,6 +53,12 @@ const dataContext = createContext<IContext>({
   onFontChange: (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e);
   },
+  onFontColorChange: (color) => {
+    console.log(color);
+  },
+  onBackgroundColorChange: (color) => {
+    console.log(color);
+  },
 });
 
 export const Provider = ({ children }: IProviderProps): ReactElement => {
@@ -56,7 +68,8 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
   const [height, onHeightChange] = useInput('300');
   const [width, onWidthChange] = useInput('700');
   const [font, onFontChange] = useInput('font1');
-
+  const [backgroundColor, onBackgroundColorChange] = useColor('white');
+  const [fontColor, onFontColorChange] = useColor('#22194D');
   const value = {
     title,
     subTitle,
@@ -64,13 +77,16 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
     width,
     height,
     font,
-
+    fontColor,
+    backgroundColor,
     onTitleChange,
     onSubTitleChange,
     onTagChange,
     onHeightChange,
     onWidthChange,
     onFontChange,
+    onBackgroundColorChange,
+    onFontColorChange,
   };
 
   return <dataContext.Provider value={value}>{children}</dataContext.Provider>;

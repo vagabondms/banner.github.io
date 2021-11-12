@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, ReactEventHandler, useState } from 'react';
 import { SketchPicker } from 'react-color';
 
 import styled from '@emotion/styled';
@@ -32,11 +32,13 @@ const StyledCoverDiv = styled.div`
 
 export interface IColorPickerProps {
   name: string;
+  onChange: any;
+  color: string;
 }
 
-const ColorPicker = ({ name }: IColorPickerProps): ReactElement => {
+const ColorPicker = ({ name, color, onChange }: IColorPickerProps): ReactElement => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [color, setColor] = useState<string>('#22194D');
+
   return (
     <>
       <StyledDiv
@@ -55,12 +57,7 @@ const ColorPicker = ({ name }: IColorPickerProps): ReactElement => {
                 setIsVisible(false);
               }}
             ></StyledCoverDiv>
-            <SketchPicker
-              color={color}
-              onChange={(e) => {
-                setColor(e.hex);
-              }}
-            ></SketchPicker>
+            <SketchPicker color={color} onChange={onChange}></SketchPicker>
           </StyledPopoverDiv>
         </>
       ) : null}

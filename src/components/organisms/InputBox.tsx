@@ -13,7 +13,8 @@ const subTitleStyle = { fontSize: 15, borderBottom: '1px solid #5ec59a', width: 
 const tagStyle = { fontSize: 15, borderBottom: '1px solid #5ec59a', width: 150 };
 
 const InputBox = (): ReactElement => {
-  const { title, subTitle, tag, font, onFontChange, onTitleChange, onSubTitleChange, onTagChange } = useData();
+  const { title, subTitle, tag, font, onFontChange, onTitleChange, onSubTitleChange, onTagChange, fontColor, onFontColorChange } =
+    useData();
   return (
     <LabeledBoxWrapper name="TEXT">
       <LabeledInput
@@ -43,7 +44,7 @@ const InputBox = (): ReactElement => {
       ></LabeledInput>
       <SubWrapper>
         <LabeledSelector name="폰트" value={font} onChange={onFontChange} options={fontGenerator()}></LabeledSelector>
-        <LabeledColorPicker name="색상"></LabeledColorPicker>
+        <LabeledColorPicker color={fontColor} onChange={onFontColorChange} name="색상"></LabeledColorPicker>
       </SubWrapper>
     </LabeledBoxWrapper>
   );

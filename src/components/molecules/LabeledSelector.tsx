@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 
 interface ILabeledInputProps {
   name: string;
-  options: (string | number)[];
+  options: string[] | number[];
   value: string;
   onChange: ReactEventHandler;
 }

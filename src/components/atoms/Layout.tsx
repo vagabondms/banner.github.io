@@ -1,9 +1,9 @@
-import React, { CSSProperties, ReactElement } from 'react';
+import React, { CSSProperties, ReactElement, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 
 export interface ILayoutProps {
-  children: ReactElement[] | ReactElement;
+  children: ReactElement[] | ReactElement | ReactNode;
   style?: CSSProperties;
 }
 
@@ -14,8 +14,9 @@ const StyledDiv = styled.div`
   margin: auto;
   width: 100vw;
   height: 100vh;
+  padding: 15px;
+  box-sizing: border-box;
   background-color: #5ec59a67;
-  padding: 30px;
 `;
 
 export const Layout = ({ children, ...rest }: ILayoutProps): ReactElement => {

@@ -5,39 +5,24 @@ import SubWrapper from '@atoms/SubWrapper';
 import { useData } from '@hooks/useData';
 import LabeledBoxWrapper from '@molecules/LabeledBoxWrapper';
 import LabeledColorPicker from '@molecules/LabeledColorPicker';
-import LabeledInput from '@molecules/LabeledInput';
-const FontBox = (): ReactElement => {
-  const { height, width, onHeightChange, onWidthChange } = useData();
+import LabeledSelector from '@molecules/LabeledSelector';
+import { widthGenerator, heightGenerator } from '@utils/data';
+const BackgroundBox = (): ReactElement => {
+  const { height, width, onHeightChange, onWidthChange, backgroundColor, onBackgroundColorChange } = useData();
   return (
     <LabeledBoxWrapper name="Background">
       <SubWrapper>
-        <LabeledColorPicker name="색상"></LabeledColorPicker>
+        <LabeledColorPicker name="색상" color={backgroundColor} onChange={onBackgroundColorChange}></LabeledColorPicker>
       </SubWrapper>
       <Divider />
-
-      <LabeledInput
-        value={width}
-        onChange={onWidthChange}
-        type="number"
-        name="넓이"
-        style={{ borderBottom: '1px solid black' }}
-        placeholder="넓이를 입력하세요"
-      ></LabeledInput>
-      <LabeledInput
-        value={height}
-        onChange={onHeightChange}
-        type="number"
-        name="높이"
-        style={{ borderBottom: '1px solid black' }}
-        placeholder="높이를 입력하세요"
-      ></LabeledInput>
-
+      <LabeledSelector options={widthGenerator()} value={width} onChange={onWidthChange} name="넓이"></LabeledSelector>
+      <LabeledSelector options={heightGenerator()} value={height} onChange={onHeightChange} name="높이"></LabeledSelector>
       <Divider />
       <SubWrapper>
-        <LabeledColorPicker name="이미지"></LabeledColorPicker>
+        <div>이미지</div>
       </SubWrapper>
     </LabeledBoxWrapper>
   );
 };
 
-export default FontBox;
+export default BackgroundBox;

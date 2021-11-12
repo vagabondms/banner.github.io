@@ -6,3 +6,19 @@ export const fontGenerator = (): string[] => {
   }
   return result;
 };
+
+export const widthGenerator = (): number[] => {
+  const result = [];
+  for (let i = 600; i <= 1000; i += 100) {
+    result.push(i);
+  }
+  return result;
+};
+
+export const heightGenerator = (): number[] => {
+  const result = [];
+  for (let i = 300; i <= 500; i += 100) {
+    result.push(i);
+  }
+  return result;
+};
