@@ -2,8 +2,11 @@ import React, { ReactElement, ReactEventHandler, SelectHTMLAttributes } from 're
 
 import styled from '@emotion/styled';
 
+export type TOption = { label: string | number; value: string | number };
+export type TOptions = TOption[];
+
 export interface ISelectorProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  options: (string | number)[];
+  options: TOptions;
   value: string;
   onChange: ReactEventHandler;
 }
@@ -18,10 +21,10 @@ const StyledOption = styled.option``;
 const Selector = ({ options, ...rest }: ISelectorProps): ReactElement => {
   return (
     <StyledSelect {...rest}>
-      {options.map((option) => {
+      {options.map(({ label, value }: TOption) => {
         return (
-          <StyledOption key={option} value={option}>
-            {option}
+          <StyledOption key={label} value={value}>
+            {label}
           </StyledOption>
         );
       })}

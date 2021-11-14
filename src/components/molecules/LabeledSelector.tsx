@@ -1,12 +1,12 @@
 import React, { ReactElement, ReactEventHandler } from 'react';
 
 import Label from '@atoms/Label';
+import { TOptions } from '@atoms/Selector';
 import Selector from '@atoms/Selector';
 import styled from '@emotion/styled';
-
 interface ILabeledInputProps {
   name: string;
-  options: string[] | number[];
+  options: TOptions;
   value: string;
   onChange: ReactEventHandler;
 }

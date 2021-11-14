@@ -23,6 +23,13 @@ const Preview = ({ visible, onClosePreview, capturedResult }: TPreviewProps): Re
     onClosePreview();
   };
 
+  const onClickDownload = () => {
+    const link = document.createElement('a');
+    link.download = '배너.png';
+    link.href = capturedResult?.toDataURL() ?? '';
+    link.click();
+  };
+
   useLayoutEffect(() => {
     if (capturedResult) {
       if (previewRef.current) {
@@ -38,6 +45,7 @@ const Preview = ({ visible, onClosePreview, capturedResult }: TPreviewProps): Re
           <BannerWrapper ref={previewRef} />
           <ButtonWrapper>
             <Button text="닫기" onClick={onClickClose} style={{ width: 100, zIndex: 1 }}></Button>
+            <Button text="다운로드" onClick={onClickDownload} style={{ width: 100, zIndex: 1 }}></Button>
           </ButtonWrapper>
         </Layout>
       </ModalWrapper>

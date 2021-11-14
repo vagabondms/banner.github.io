@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -29,7 +29,7 @@ const StyledDiv = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(204, 204, 204, 0.97);
+  background: rgba(204, 204, 204);
   ${handleDisplay}
 `;
 
