@@ -9,7 +9,6 @@ const StyledDiv = styled.div`
   justify-content: center;
   overflow: hidden;
   padding: 20px 0;
-  box-sizing: border-box;
   position: relative;
 `;
 type TBannerBackground = {

@@ -1,9 +1,9 @@
-import React, { ReactElement, useState, useRef } from 'react';
+import React, { ReactElement, useRef } from 'react';
 
 import Button from '@atoms/Button';
-import ButtonWrapper from '@atoms/ButtonWrapper';
 import Header from '@atoms/Header';
 import { Layout } from '@atoms/Layout';
+import Wrapper from '@atoms/Wrapper';
 import { useData } from '@hooks/useData';
 import Banner from '@molecules/Banner';
 import BackgroundBox from '@organisms/BackgroundBox';
@@ -34,14 +34,14 @@ const App = (): ReactElement => {
         <Banner ref={bannerRef}></Banner>
         <InputBox></InputBox>
         <BackgroundBox />
-        <ButtonWrapper>
+        <Wrapper wrapperType="button">
           <Button
             text="다운로드"
             onClick={() => {
               captureImage();
             }}
           ></Button>
-        </ButtonWrapper>
+        </Wrapper>
       </Layout>
     </>
   );

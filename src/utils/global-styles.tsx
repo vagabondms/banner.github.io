@@ -76,19 +76,19 @@ const GlobalStyles = (): ReactElement => {
     <Global
       styles={css`
         ${fonts}
-        html {
+
+        html, 
+        body {
           height: 100vh;
           width: 100vw;
+          padding: 0;
+          margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
             'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-        }
-
-        body {
-          margin: 0;
-          padding: 0;
-          height: 100%;
-          width: 100%;
           background-color: #233142;
+        }
+        * {
+          box-sizing: border-box;
         }
       `}
     ></Global>
