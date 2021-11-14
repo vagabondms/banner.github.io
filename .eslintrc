@@ -34,7 +34,8 @@
         "groups": ["/^react/", "module", ["parent", "sibling", "index"]],
         "newlinesBetween": "always"
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": ["off"]
   },
   "settings": {
     "react": {
