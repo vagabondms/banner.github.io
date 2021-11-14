@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 const StyledDiv = styled.div`
   white-space: nowrap;
   display: flex;
-  box-sizing: border-box;
   align-content: center;
   justify-content: center;
 `;

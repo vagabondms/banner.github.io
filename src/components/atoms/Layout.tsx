@@ -18,7 +18,6 @@ const StyledDiv = styled.div`
   min-height: 790px;
   padding: 15px;
   padding-top: 50px;
-  box-sizing: border-box;
 `;
 
 export const Layout = ({ children, ...rest }: ILayoutProps): ReactElement => {

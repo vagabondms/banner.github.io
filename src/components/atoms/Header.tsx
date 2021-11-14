@@ -12,7 +12,6 @@ const StyledDiv = styled.div`
   display: flex;
   padding: 0 10px;
   flex-direction: row-reverse;
-  box-sizing: border-box;
   align-items: center;
   font-weight: bold;
   color: #233142;

@@ -18,9 +18,8 @@ const StyledSelect = styled.select`
 
   text-align: center;
   border: 1px solid #facf5a;
-  box-sizing: content-box;
   width: 100px;
-  height: 20px;
+  height: 30px;
 
   background: transparent;
   color: #facf5a;

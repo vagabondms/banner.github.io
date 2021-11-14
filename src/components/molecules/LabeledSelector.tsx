@@ -1,9 +1,9 @@
 import React, { ReactElement, ReactEventHandler } from 'react';
 
 import Label from '@atoms/Label';
-import LabelWrapper from '@atoms/LabelWrapper';
 import { TOptions } from '@atoms/Selector';
 import Selector from '@atoms/Selector';
+import Wrapper from '@atoms/Wrapper';
 
 interface ILabeledInputProps {
   name: string;
@@ -14,10 +14,10 @@ interface ILabeledInputProps {
 
 const LabeledSelector = ({ name, options, value, onChange }: ILabeledInputProps): ReactElement => {
   return (
-    <LabelWrapper>
+    <Wrapper wrapperType="label">
       <Label htmlFor={name}>{name}</Label>
       <Selector id={name} value={value} onChange={onChange} options={options}></Selector>
-    </LabelWrapper>
+    </Wrapper>
   );
 };
 
