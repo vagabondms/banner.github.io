@@ -1,24 +1,55 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState, useRef } from 'react';
 
 import Button from '@atoms/Button';
-import Canvas from '@atoms/Canvas';
+import ButtonWrapper from '@atoms/ButtonWrapper';
+import Header from '@atoms/Header';
 import { Layout } from '@atoms/Layout';
+import { Provider } from '@hooks/useData';
+import Banner from '@molecules/Banner';
 import BackgroundBox from '@organisms/BackgroundBox';
-import FontBox from '@organisms/FontBox';
 import InputBox from '@organisms/InputBox';
-
+import Preview from '@organisms/Preview';
+import capture from 'html2canvas';
 const App = (): ReactElement => {
-  // context를 사용해서 canvas와 각각의 Box에 value를 주입해야함.
+  const [visible, setVisible] = useState(false);
+  const [capturedResult, setCapturedResult] = useState<HTMLCanvasElement>();
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  const onClosePreview = () => {
+    setVisible(false);
+  };
+
+  const captureImage = async () => {
+    if (bannerRef.current) {
+      const result = await capture(bannerRef.current);
+      if (result) {
+        setCapturedResult(result);
+      }
+    }
+  };
+
   return (
-    <Layout>
-      <Layout style={{ backgroundColor: 'white', width: 600 }}>
-        <Canvas></Canvas>
-        <InputBox></InputBox>
-        <FontBox></FontBox>
-        <BackgroundBox />
-        <Button text="Download" onClick={() => {}}></Button>
+    <>
+      <Header />
+      <Layout>
+        <Provider>
+          <Banner ref={bannerRef}></Banner>
+          <InputBox></InputBox>
+          <BackgroundBox />
+        </Provider>
+        <ButtonWrapper>
+          <Button
+            text="미리보기"
+            onClick={() => {
+              setVisible(true);
+              captureImage();
+            }}
+          ></Button>
+        </ButtonWrapper>
+
+        <Preview capturedResult={capturedResult} visible={visible} onClosePreview={onClosePreview}></Preview>
       </Layout>
-    </Layout>
+    </>
   );
 };
 
