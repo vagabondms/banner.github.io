@@ -16,7 +16,7 @@ const StyledSelect = styled.select`
   height: 25px;
   background: transparent;
   color: #facf5a;
-  margin-top: 2px;
+  margin-top: 5px;
   padding: 4px;
   border-radius: 4px;
   outline: 0 none;

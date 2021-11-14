@@ -8,6 +8,7 @@ const StyledDiv = styled.div`
   width: 100px;
   height: 20px;
   border: 0.5px solid black;
+  border-radius: 4px;
   border-radius: 2px;
 `;
 const StyledInnerDiv = styled.div`
