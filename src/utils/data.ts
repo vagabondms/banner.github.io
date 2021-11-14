@@ -1,24 +1,37 @@
-//dummy
-export const fontGenerator = (): string[] => {
-  const result = [];
-  for (let i = 1; i <= 5; i++) {
-    result.push(`font${i}`);
-  }
-  return result;
+import { TOptions } from '@atoms/Selector';
+
+export const fontGenerator = (): TOptions => {
+  return [
+    { label: 'Noto-sans', value: 'Noto-sans' },
+    { label: '고운돋움', value: 'GowunDodum-Regular' },
+    { label: 'G마켓 Sans M', value: 'GmarketSansMedium' },
+    { label: '여기어때 잘난체', value: 'yg-jalnan' },
+    { label: '리디 바탕', value: 'RIDIBatang' },
+    { label: '배민 한나체', value: 'BMHANNAPro' },
+    { label: '원스토어 고딕', value: 'ONE-Mobile-Title' },
+    { label: '나눔 바른펜', value: 'NanumBarunpen' },
+    { label: '한글 누리체', value: 'HangeulNuri-Bold' },
+  ];
 };
 
-export const widthGenerator = (): number[] => {
+export const widthGenerator = (): TOptions => {
   const result = [];
   for (let i = 600; i <= 1000; i += 50) {
-    result.push(i);
+    result.push({
+      label: i,
+      value: i,
+    });
   }
   return result;
 };
 
-export const heightGenerator = (): number[] => {
+export const heightGenerator = (): TOptions => {
   const result = [];
   for (let i = 250; i <= 400; i += 50) {
-    result.push(i);
+    result.push({
+      label: i,
+      value: i,
+    });
   }
   return result;
 };

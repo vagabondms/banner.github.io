@@ -15,17 +15,16 @@ const Preview = forwardRef<HTMLDivElement>((_, ref) => {
         style={{
           width: Number(width),
           height: Number(height),
-          font,
+          fontFamily: font,
           backgroundColor,
           color: fontColor,
         }}
       >
         <BannerText
           style={{
-            fontSize: 45,
+            fontSize: 55,
             borderBottom: subTitle ? `3px solid ${fontColor}` : 'none',
             fontWeight: 'bold',
-            height: 55,
           }}
         >
           {title}

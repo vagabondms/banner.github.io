@@ -4,13 +4,13 @@ import styled from '@emotion/styled';
 
 const StyledDiv = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-direction: row-reverse;
+  justify-content: space-between;
   width: 650px;
   margin: 15px 0;
 `;
 type TButtonWrapper = {
-  children: ReactElement;
+  children: ReactElement[] | ReactElement;
 };
 const ButtonWrapper = ({ children }: TButtonWrapper): ReactElement => {
   return <StyledDiv>{children}</StyledDiv>;
