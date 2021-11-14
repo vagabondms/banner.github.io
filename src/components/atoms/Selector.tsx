@@ -13,8 +13,16 @@ export interface ISelectorProps extends SelectHTMLAttributes<HTMLSelectElement> 
 
 const StyledSelect = styled.select`
   width: 100px;
+  height: 25px;
   background: transparent;
   color: #facf5a;
+  margin-top: 2px;
+  padding: 4px;
+  border-radius: 4px;
+  outline: 0 none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 `;
 const StyledOption = styled.option``;
 
