@@ -13,9 +13,10 @@ const StyledInput = styled.input<TStyledInputProp>`
   text-align: center;
   background: transparent;
   color: #ff5959;
-
+  font-size: 15px;
   border-bottom: 1px solid #facf5a;
   width: 200px;
+  margin: 5px;
   :focus {
     outline: none;
     caret-color: #5ec59a;

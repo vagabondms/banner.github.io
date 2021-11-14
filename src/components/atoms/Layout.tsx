@@ -15,7 +15,9 @@ const StyledDiv = styled.div`
   margin: auto;
   width: 1100px;
   height: 100vh;
+  min-height: 790px;
   padding: 15px;
+  padding-top: 50px;
   box-sizing: border-box;
 `;
 

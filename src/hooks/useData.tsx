@@ -4,7 +4,7 @@ import { ColorChangeHandler } from 'react-color';
 import useColor from './useColor';
 import useInput from './useInput';
 export interface IProviderProps {
-  children: ReactElement[];
+  children: ReactElement;
 }
 
 interface IContext {

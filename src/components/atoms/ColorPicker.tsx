@@ -4,12 +4,14 @@ import { CompactPicker, ColorChangeHandler } from 'react-color';
 import styled from '@emotion/styled';
 
 const StyledDiv = styled.div`
-  box-sizing: border-box;
   width: 100px;
   height: 20px;
   border: 1px solid #facf5a;
   border-radius: 4px;
   overflow: hidden;
+  box-sizing: content-box;
+  padding: 4px;
+  margin: 5px;
 `;
 const StyledInnerDiv = styled.div`
   box-sizing: border-box;

@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 const StyledDiv = styled.div`
   width: 100%;
   min-width: 1100px;
-  height: 40px;
+  height: 50px;
   background-color: #ff5959;
   position: absolute;
   font-size: 20px;

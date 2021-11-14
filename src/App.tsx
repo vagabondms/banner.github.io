@@ -4,26 +4,25 @@ import Button from '@atoms/Button';
 import ButtonWrapper from '@atoms/ButtonWrapper';
 import Header from '@atoms/Header';
 import { Layout } from '@atoms/Layout';
-import { Provider } from '@hooks/useData';
+import { useData } from '@hooks/useData';
 import Banner from '@molecules/Banner';
 import BackgroundBox from '@organisms/BackgroundBox';
 import InputBox from '@organisms/InputBox';
-import Preview from '@organisms/Preview';
 import capture from 'html2canvas';
-const App = (): ReactElement => {
-  const [visible, setVisible] = useState(false);
-  const [capturedResult, setCapturedResult] = useState<HTMLCanvasElement>();
-  const bannerRef = useRef<HTMLDivElement>(null);
 
-  const onClosePreview = () => {
-    setVisible(false);
-  };
+const App = (): ReactElement => {
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const { title } = useData();
 
   const captureImage = async () => {
     if (bannerRef.current) {
       const result = await capture(bannerRef.current);
       if (result) {
-        setCapturedResult(result);
+        const link = document.createElement('a');
+        const underbarTitle = title.replaceAll(/(\s)+/g, '_');
+        link.download = `${underbarTitle}.png`;
+        link.href = result?.toDataURL() ?? '';
+        link.click();
       }
     }
   };
@@ -32,17 +31,13 @@ const App = (): ReactElement => {
     <>
       <Header />
       <Layout>
-        <Provider>
-          <Banner ref={bannerRef}></Banner>
-          <InputBox></InputBox>
-          <BackgroundBox />
-          <Preview capturedResult={capturedResult} visible={visible} onClosePreview={onClosePreview}></Preview>
-        </Provider>
+        <Banner ref={bannerRef}></Banner>
+        <InputBox></InputBox>
+        <BackgroundBox />
         <ButtonWrapper>
           <Button
-            text="미리보기"
+            text="다운로드"
             onClick={() => {
-              setVisible(true);
               captureImage();
             }}
           ></Button>

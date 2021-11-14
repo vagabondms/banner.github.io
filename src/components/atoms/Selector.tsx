@@ -12,17 +12,22 @@ export interface ISelectorProps extends SelectHTMLAttributes<HTMLSelectElement> 
 }
 
 const StyledSelect = styled.select`
-  width: 100px;
-  height: 25px;
-  background: transparent;
-  color: #facf5a;
-  margin-top: 5px;
-  padding: 4px;
-  border-radius: 4px;
-  outline: 0 none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+
+  text-align: center;
+  border: 1px solid #facf5a;
+  box-sizing: content-box;
+  width: 100px;
+  height: 20px;
+
+  background: transparent;
+  color: #facf5a;
+  margin: 5px;
+  padding: 4px;
+  border-radius: 4px;
+  outline: 0 none;
 `;
 const StyledOption = styled.option``;
 
