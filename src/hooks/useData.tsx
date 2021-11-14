@@ -65,11 +65,11 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
   const [title, onTitleChange] = useInput('');
   const [subTitle, onSubTitleChange] = useInput('');
   const [tag, onTagChange] = useInput('');
-  const [height, onHeightChange] = useInput('300');
+  const [height, onHeightChange] = useInput('350');
   const [width, onWidthChange] = useInput('700');
   const [font, onFontChange] = useInput('Noto-sans');
-  const [backgroundColor, onBackgroundColorChange] = useColor('white');
-  const [fontColor, onFontColorChange] = useColor('black');
+  const [backgroundColor, onBackgroundColorChange] = useColor('#E6CCA9');
+  const [fontColor, onFontColorChange] = useColor('#533535');
   const value = {
     title,
     subTitle,

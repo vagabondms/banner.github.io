@@ -5,6 +5,7 @@ import Button from '@atoms/Button';
 import ButtonWrapper from '@atoms/ButtonWrapper';
 import { Layout } from '@atoms/Layout';
 import ModalWrapper from '@atoms/ModalWrapper';
+import { useData } from '@hooks/useData';
 
 type TPreviewProps = {
   visible: boolean;
@@ -14,20 +15,21 @@ type TPreviewProps = {
 
 const Preview = ({ visible, onClosePreview, capturedResult }: TPreviewProps): ReactElement => {
   const previewRef = useRef<HTMLDivElement>(null);
-
+  const { title } = useData();
   const onClickClose = () => {
     if (previewRef.current) {
       previewRef.current.innerHTML = '';
     }
-
     onClosePreview();
   };
 
   const onClickDownload = () => {
     const link = document.createElement('a');
-    link.download = '배너.png';
+    const underbarTitle = title.replaceAll(/(\s)+/g, '_');
+    link.download = `${underbarTitle}.png`;
     link.href = capturedResult?.toDataURL() ?? '';
     link.click();
+    onClickClose();
   };
 
   useLayoutEffect(() => {

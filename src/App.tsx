@@ -36,6 +36,7 @@ const App = (): ReactElement => {
           <Banner ref={bannerRef}></Banner>
           <InputBox></InputBox>
           <BackgroundBox />
+          <Preview capturedResult={capturedResult} visible={visible} onClosePreview={onClosePreview}></Preview>
         </Provider>
         <ButtonWrapper>
           <Button
@@ -46,8 +47,6 @@ const App = (): ReactElement => {
             }}
           ></Button>
         </ButtonWrapper>
-
-        <Preview capturedResult={capturedResult} visible={visible} onClosePreview={onClosePreview}></Preview>
       </Layout>
     </>
   );

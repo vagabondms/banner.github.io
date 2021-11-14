@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import { SketchPicker, ColorChangeHandler } from 'react-color';
+import { CompactPicker, ColorChangeHandler } from 'react-color';
 
 import styled from '@emotion/styled';
 
@@ -56,7 +56,7 @@ const ColorPicker = ({ name, color, onChange }: IColorPickerProps): ReactElement
                 setIsVisible(false);
               }}
             ></StyledCoverDiv>
-            <SketchPicker color={color} onChange={onChange}></SketchPicker>
+            <CompactPicker color={color} onChange={onChange}></CompactPicker>
           </StyledPopoverDiv>
         </>
       ) : null}
