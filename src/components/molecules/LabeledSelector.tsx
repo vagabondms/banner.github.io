@@ -15,7 +15,7 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   color: black;
-  margin: 10px;
+  margin: 5px 0;
 `;
 const LabeledSelector = ({ name, options, value, onChange }: ILabeledInputProps): ReactElement => {
   return (

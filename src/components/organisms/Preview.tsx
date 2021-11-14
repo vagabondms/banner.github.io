@@ -1,41 +1,48 @@
-import React, { ReactElement, forwardRef } from 'react';
+import React, { ReactElement, useLayoutEffect, useRef } from 'react';
+
+import BannerWrapper from '@atoms/BannerWrapper';
+import Button from '@atoms/Button';
+import ButtonWrapper from '@atoms/ButtonWrapper';
+import { Layout } from '@atoms/Layout';
+import ModalWrapper from '@atoms/ModalWrapper';
 
 type TPreviewProps = {
   visible: boolean;
   onClosePreview: () => void;
+  capturedResult?: HTMLCanvasElement;
 };
 
-const Preview = forwardRef<HTMLDivElement, TPreviewProps>(({ visible, onClosePreview }: TPreviewProps, ref): ReactElement => {
+const Preview = ({ visible, onClosePreview, capturedResult }: TPreviewProps): ReactElement => {
+  const previewRef = useRef<HTMLDivElement>(null);
+
   const onClickClose = () => {
+    if (previewRef.current) {
+      previewRef.current.innerHTML = '';
+    }
+
     onClosePreview();
   };
 
+  useLayoutEffect(() => {
+    if (capturedResult) {
+      if (previewRef.current) {
+        previewRef.current.appendChild(capturedResult);
+      }
+    }
+  }, [capturedResult]);
+
   return (
     <>
-      <div
-        ref={ref}
-        style={{
-          position: 'absolute',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: 0,
-          visibility: visible ? 'visible' : 'hidden',
-          background: 'rgba(204,204,204,0.97)',
-          opacity: 0.97,
-          padding: 20,
-        }}
-      >
-        <div onClick={onClickClose} style={{ position: 'absolute', right: 20, top: 20 }}>
-          x
-        </div>
-      </div>
+      <ModalWrapper display={visible}>
+        <Layout>
+          <BannerWrapper ref={previewRef} />
+          <ButtonWrapper>
+            <Button text="닫기" onClick={onClickClose} style={{ width: 100, zIndex: 1 }}></Button>
+          </ButtonWrapper>
+        </Layout>
+      </ModalWrapper>
     </>
   );
-});
-Preview.displayName = 'Preview';
+};
 
 export default Preview;

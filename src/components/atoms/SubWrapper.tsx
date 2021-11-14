@@ -10,8 +10,7 @@ const StyledDivWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: 'center';
-  padding: 5px;
+  align-items: center;
 `;
 
 const WrapperBox = ({ children }: IWrapperBoxProps): ReactElement => {

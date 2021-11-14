@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement, ReactEventHandler } from 'react';
+import React, { ReactElement, ReactEventHandler } from 'react';
 
 import Input from '@atoms/Input';
 import Label from '@atoms/Label';
@@ -6,7 +6,6 @@ import styled from '@emotion/styled';
 
 interface ILabeledInputProps {
   name: string;
-  style?: CSSProperties;
   placeholder: string;
   type: 'text' | 'number';
   value: string;
@@ -15,15 +14,15 @@ interface ILabeledInputProps {
 
 const StyledDiv = styled.div`
   display: flex;
-  flex-direction: column;
-  color: black;
-  margin: 10px;
+  margin: 5px 0;
+  width: 300px;
+  justify-content: space-between;
 `;
-const LabeledInput = ({ name, style, ...rest }: ILabeledInputProps): ReactElement => {
+const LabeledInput = ({ name, ...rest }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
       <Label htmlFor={name}>{name}</Label>
-      <Input id={name} style={style} {...rest}></Input>
+      <Input id={name} {...rest}></Input>
     </StyledDiv>
   );
 };

@@ -14,8 +14,6 @@ interface ILabeledInputProps {
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
-  color: black;
-  margin: 10px;
 `;
 
 const LabeledInput = ({ name, color, onChange }: ILabeledInputProps): ReactElement => {

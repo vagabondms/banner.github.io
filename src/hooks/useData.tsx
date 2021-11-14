@@ -69,7 +69,7 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
   const [width, onWidthChange] = useInput('700');
   const [font, onFontChange] = useInput('font1');
   const [backgroundColor, onBackgroundColorChange] = useColor('white');
-  const [fontColor, onFontColorChange] = useColor('#22194D');
+  const [fontColor, onFontColorChange] = useColor('black');
   const value = {
     title,
     subTitle,

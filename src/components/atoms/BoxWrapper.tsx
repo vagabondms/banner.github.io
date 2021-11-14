@@ -9,11 +9,12 @@ export interface IBoxWrapperProps {
 
 const StyledDivWrapper = styled.div<IBoxWrapperProps>`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 750px;
-  border: 1px solid lightgrey;
+  width: 650px;
   padding: 5px;
+  background: transparent;
+  margin: 8px 0;
 `;
 
 const BoxWrapper = ({ children, name, ...rest }: IBoxWrapperProps): ReactElement => {

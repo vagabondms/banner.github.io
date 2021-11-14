@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 
 import { Global, css } from '@emotion/react';
 
@@ -15,6 +15,8 @@ const GlobalStyles = (): ReactElement => {
           padding: 0;
           height: 100%;
           width: 100%;
+          color: white;
+          background-color: #233142;
         }
       `}
     ></Global>

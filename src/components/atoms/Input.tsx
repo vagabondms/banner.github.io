@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, ReactElement, CSSProperties, ReactEventHandler, HTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, ReactElement, ReactEventHandler, HTMLAttributes } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -11,6 +11,11 @@ type TStyledInputProp = InputHTMLAttributes<Element>;
 const StyledInput = styled.input<TStyledInputProp>`
   border: none;
   text-align: center;
+  background: transparent;
+  color: #ff5959;
+
+  border-bottom: 1px solid #facf5a;
+  width: 200px;
   :focus {
     outline: none;
     caret-color: #5ec59a;

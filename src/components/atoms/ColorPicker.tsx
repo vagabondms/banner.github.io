@@ -1,5 +1,5 @@
-import React, { ReactElement, ReactEventHandler, useState } from 'react';
-import { SketchPicker } from 'react-color';
+import React, { ReactElement, useState } from 'react';
+import { SketchPicker, ColorChangeHandler } from 'react-color';
 
 import styled from '@emotion/styled';
 
@@ -7,7 +7,6 @@ const StyledDiv = styled.div`
   box-sizing: border-box;
   width: 100px;
   height: 20px;
-  padding: 2px;
   border: 0.5px solid black;
   border-radius: 2px;
 `;
@@ -32,7 +31,7 @@ const StyledCoverDiv = styled.div`
 
 export interface IColorPickerProps {
   name: string;
-  onChange: any;
+  onChange: ColorChangeHandler;
   color: string;
 }
 

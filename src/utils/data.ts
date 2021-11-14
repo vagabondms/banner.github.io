@@ -9,7 +9,7 @@ export const fontGenerator = (): string[] => {
 
 export const widthGenerator = (): number[] => {
   const result = [];
-  for (let i = 600; i <= 1000; i += 100) {
+  for (let i = 600; i <= 1000; i += 50) {
     result.push(i);
   }
   return result;
@@ -17,7 +17,7 @@ export const widthGenerator = (): number[] => {
 
 export const heightGenerator = (): number[] => {
   const result = [];
-  for (let i = 300; i <= 500; i += 100) {
+  for (let i = 250; i <= 400; i += 50) {
     result.push(i);
   }
   return result;

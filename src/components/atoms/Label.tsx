@@ -6,7 +6,12 @@ interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   children: ReactNode;
 }
 
-const StyledLabel = styled.label``;
+const StyledLabel = styled.label`
+  background: transparent;
+  color: #4f9da6;
+  font-size: 15px;
+  font-weight: bold;
+`;
 
 const Label = ({ children, ...rest }: ILabelProps): ReactElement => {
   return <StyledLabel {...rest}>{children}</StyledLabel>;
