@@ -7,12 +7,11 @@ const StyledDiv = styled.div`
   box-sizing: border-box;
   width: 100px;
   height: 20px;
-  border: 0.5px solid black;
+  border: 1px solid #facf5a;
   border-radius: 4px;
-  border-radius: 2px;
+  overflow: hidden;
 `;
 const StyledInnerDiv = styled.div`
-  border: 0.1px solid lightgrey;
   box-sizing: border-box;
   height: 100%;
 `;
