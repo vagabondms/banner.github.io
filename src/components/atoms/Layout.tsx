@@ -12,10 +12,9 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  width: 1100px;
-  height: 100vh;
-  min-height: 790px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
   padding: 15px;
   padding-top: 50px;
 `;
