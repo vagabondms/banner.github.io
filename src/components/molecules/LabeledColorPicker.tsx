@@ -3,7 +3,7 @@ import { ColorChangeHandler } from 'react-color';
 
 import ColorPicker from '@atoms/ColorPicker';
 import Label from '@atoms/Label';
-import styled from '@emotion/styled';
+import Wrapper from '@atoms/Wrapper';
 
 interface ILabeledInputProps {
   name: string;
@@ -11,17 +11,12 @@ interface ILabeledInputProps {
   color: string;
 }
 
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const LabeledInput = ({ name, color, onChange }: ILabeledInputProps): ReactElement => {
   return (
-    <StyledDiv>
+    <Wrapper wrapperType="label">
       <Label htmlFor={name}>{name}</Label>
       <ColorPicker color={color} name={name} onChange={onChange}></ColorPicker>
-    </StyledDiv>
+    </Wrapper>
   );
 };
 

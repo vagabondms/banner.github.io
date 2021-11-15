@@ -18,6 +18,7 @@ const StyledButton = styled.button`
   height: 50px;
   font-size: 20px;
   font-weight: bold;
+
   :hover {
     animation: shake 0.4s;
     animation-iteration-count: infinite;

@@ -2,14 +2,14 @@ import React, { forwardRef } from 'react';
 
 import BannerBackground from '@atoms/BannerBackground';
 import BannerText from '@atoms/BannerText';
-import BannerWrapper from '@atoms/BannerWrapper';
+import Wrapper from '@atoms/Wrapper';
 import { useData } from '@hooks/useData';
 
 const Preview = forwardRef<HTMLDivElement>((_, ref) => {
   const { title, subTitle, tag, font, width, height, backgroundColor, fontColor } = useData();
 
   return (
-    <BannerWrapper>
+    <Wrapper wrapperType="banner">
       <BannerBackground
         ref={ref}
         style={{
@@ -32,7 +32,7 @@ const Preview = forwardRef<HTMLDivElement>((_, ref) => {
         {subTitle && <BannerText style={{ fontSize: 25, marginTop: 10 }}>{subTitle}</BannerText>}
         {tag && <BannerText style={{ fontSize: 15, position: 'absolute', bottom: 40 }}>{tag}</BannerText>}
       </BannerBackground>
-    </BannerWrapper>
+    </Wrapper>
   );
 });
 Preview.displayName = 'Preview';
