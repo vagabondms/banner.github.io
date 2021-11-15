@@ -15,8 +15,9 @@ const StyledDiv = styled.div`
   margin: 0 auto;
   width: 100%;
   height: 100%;
-  padding: 15px;
+  padding: 15px 0px;
   padding-top: 50px;
+  position: relative;
 `;
 
 export const Layout = ({ children, ...rest }: ILayoutProps): ReactElement => {
