@@ -14,7 +14,8 @@ interface ILabeledInputProps {
 
 const StyledDiv = styled.div`
   display: flex;
-  width: 300px;
+  flex-direction: column;
+  width: 200px;
   justify-content: space-between;
 `;
 
