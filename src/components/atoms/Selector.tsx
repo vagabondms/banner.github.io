@@ -7,7 +7,7 @@ export type TOptions = TOption[];
 
 export interface ISelectorProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: TOptions;
-  value: string;
+  value: string | number;
   onChange: ReactEventHandler;
 }
 
