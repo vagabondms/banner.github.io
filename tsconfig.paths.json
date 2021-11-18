@@ -8,7 +8,8 @@
       "@atoms/*": ["src/components/atoms/*"],
       "@molecules/*": ["src/components/molecules/*"],
       "@organisms/*": ["src/components/organisms/*"],
-      "@svg/*": ["src/styles/svgs/*"],
+      "@styles/*": ["src/styles/*"],
+      "@styles": ["src/styles"],
       "@/*": ["src/*"]
     }
   }
