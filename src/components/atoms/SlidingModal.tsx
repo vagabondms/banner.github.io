@@ -19,6 +19,9 @@ const handleVisible = ({ visible }: TSlidingModalProps) => {
       return css`
         width: 0px;
         opacity: 0;
+        * {
+          display: none;
+        }
       `;
     default:
       return css``;
@@ -26,8 +29,7 @@ const handleVisible = ({ visible }: TSlidingModalProps) => {
 };
 
 const StyledDiv = styled.div`
-  height: 100% - 50px;
-  margin-top: 50px;
+  height: 100%;
   position: absolute;
   right: 0;
   top: 0;
@@ -36,7 +38,7 @@ const StyledDiv = styled.div`
   z-index: 1;
 
   ${handleVisible}
-  transition : 0.2s
+  transition : 0.5s
 `;
 
 const SlidingModalInnerWrapper = styled.div`

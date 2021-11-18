@@ -27,7 +27,7 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
   return (
     <SlidingModal visible={visible}>
       <LabeledSelector name="폰트" value={font} onChange={onFontChange} options={fontGenerator()}></LabeledSelector>
-      <Divider />
+      <Divider dividerType="parallel" />
       <LabeledSelector
         name="제목"
         value={titleFontSize}
@@ -46,7 +46,7 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
         onChange={onTagFontSizeChange}
         options={fontSizeGenerator('tag')}
       ></LabeledSelector>
-      <Divider />
+      <Divider dividerType="parallel" />
       <LabeledSelector options={widthGenerator()} value={width} onChange={onWidthChange} name="배경 넓이"></LabeledSelector>
       <LabeledSelector options={heightGenerator()} value={height} onChange={onHeightChange} name="배경 높이"></LabeledSelector>
     </SlidingModal>

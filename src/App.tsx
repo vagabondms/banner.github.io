@@ -1,11 +1,11 @@
 import React, { ReactElement, useRef, useState } from 'react';
 
 import Button from '@atoms/Button';
-import Header from '@atoms/Header';
 import { Layout } from '@atoms/Layout';
 import Wrapper from '@atoms/Wrapper';
 import { useData } from '@hooks/useData';
 import Banner from '@molecules/Banner';
+import Header from '@molecules/Header';
 import BackgroundBox from '@organisms/BackgroundBox';
 import InputBox from '@organisms/InputBox';
 import SlidingMenu from '@organisms/SlidingMenu';
