@@ -8,7 +8,7 @@ import Wrapper from '@atoms/Wrapper';
 interface ILabeledInputProps {
   name: string;
   options: TOptions;
-  value: string;
+  value: string | number;
   onChange: ReactEventHandler;
 }
 

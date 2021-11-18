@@ -20,8 +20,8 @@ const StyledButton = styled.button`
   font-weight: bold;
 
   :hover {
-    animation: shake 0.4s;
-    animation-iteration-count: infinite;
+    /* animation: shake 0.4s;
+    animation-iteration-count: infinite; */
     box-shadow: 2px 2px 2px lightgrey;
     background-color: #5ec59ad8;
   }
@@ -31,7 +31,7 @@ const StyledButton = styled.button`
     animation: none;
   }
 
-  @keyframes shake {
+  /* @keyframes shake {
     0% {
       transform: rotate(0deg);
     }
@@ -41,7 +41,7 @@ const StyledButton = styled.button`
     100% {
       transform: rotate(1deg);
     }
-  }
+  } */
 `;
 
 const Button = ({ text, onClick, ...rest }: IButtonProps): ReactElement => {
