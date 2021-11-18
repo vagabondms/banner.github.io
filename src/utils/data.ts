@@ -35,3 +35,28 @@ export const heightGenerator = (): TOptions => {
   }
   return result;
 };
+
+type TFontType = 'title' | 'subTitle' | 'tag';
+
+export const fontSizeGenerator = (fontType: TFontType): TOptions => {
+  const getDiffSize = (type: TFontType) => {
+    switch (type) {
+      case 'title':
+        return 0;
+      case 'subTitle':
+        return 30;
+      case 'tag':
+        return 30;
+    }
+  };
+
+  const diffSize = getDiffSize(fontType);
+  const result = [];
+  for (let i = 40 - diffSize; i <= 80 - diffSize; i += 5) {
+    result.push({
+      label: i,
+      value: i,
+    });
+  }
+  return result;
+};

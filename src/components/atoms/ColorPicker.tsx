@@ -1,25 +1,52 @@
 import React, { ReactElement, useState } from 'react';
-import { CompactPicker, ColorChangeHandler } from 'react-color';
+import { SketchPicker, ColorChangeHandler } from 'react-color';
 
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+type TPickerPositionEnum = 'top' | 'left' | 'right' | 'bottom';
+
+export interface IColorPickerProps {
+  name: string;
+  onChange: ColorChangeHandler;
+  color: string;
+  pickerPosition?: TPickerPositionEnum;
+}
 
 const StyledDiv = styled.div`
-  box-sizing: border-box;
   width: 100px;
-  height: 20px;
-  border: 0.5px solid black;
-  border-radius: 2px;
+  height: 30px;
+  border: 1px solid #facf5a;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 4px;
+  margin: 5px;
 `;
 const StyledInnerDiv = styled.div`
-  border: 0.1px solid lightgrey;
-  box-sizing: border-box;
   height: 100%;
 `;
 
-const StyledPopoverDiv = styled.div`
-  margin-top: 40px;
+const handlePickerPosition = ({ position }: { position: TPickerPositionEnum }) => {
+  switch (position) {
+    case 'top':
+      return css`
+        bottom: 40px;
+        right: -60px;
+      `;
+    case 'left':
+      return css`
+        bottom: -150px;
+        right: 110px;
+      `;
+    default:
+      return css``;
+  }
+};
+
+const StyledPopoverDiv = styled.div<{ position: TPickerPositionEnum }>`
   position: absolute;
   z-index: 2;
+
+  ${handlePickerPosition};
 `;
 const StyledCoverDiv = styled.div`
   position: fixed;
@@ -29,17 +56,11 @@ const StyledCoverDiv = styled.div`
   left: 0px;
 `;
 
-export interface IColorPickerProps {
-  name: string;
-  onChange: ColorChangeHandler;
-  color: string;
-}
-
-const ColorPicker = ({ name, color, onChange }: IColorPickerProps): ReactElement => {
+const ColorPicker = ({ name, color, onChange, pickerPosition = 'bottom' }: IColorPickerProps): ReactElement => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <StyledDiv
         id={name}
         onClick={() => {
@@ -50,17 +71,17 @@ const ColorPicker = ({ name, color, onChange }: IColorPickerProps): ReactElement
       </StyledDiv>
       {isVisible ? (
         <>
-          <StyledPopoverDiv>
+          <StyledPopoverDiv position={pickerPosition}>
             <StyledCoverDiv
               onClick={() => {
                 setIsVisible(false);
               }}
             ></StyledCoverDiv>
-            <CompactPicker color={color} onChange={onChange}></CompactPicker>
+            <SketchPicker color={color} onChange={onChange}></SketchPicker>
           </StyledPopoverDiv>
         </>
       ) : null}
-    </>
+    </div>
   );
 };
 

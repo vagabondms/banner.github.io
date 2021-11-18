@@ -12,11 +12,10 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  width: 1100px;
-  height: 100vh;
-  padding: 15px;
-  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  height: calc(100% - 50px);
+  position: relative;
 `;
 
 export const Layout = ({ children, ...rest }: ILayoutProps): ReactElement => {

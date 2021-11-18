@@ -7,14 +7,26 @@ export type TOptions = TOption[];
 
 export interface ISelectorProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: TOptions;
-  value: string;
+  value: string | number;
   onChange: ReactEventHandler;
 }
 
 const StyledSelect = styled.select`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  text-align: center;
+  border: 1px solid #facf5a;
   width: 100px;
+  height: 30px;
+
   background: transparent;
   color: #facf5a;
+  margin: 5px;
+  padding: 4px;
+  border-radius: 4px;
+  outline: 0 none;
 `;
 const StyledOption = styled.option``;
 

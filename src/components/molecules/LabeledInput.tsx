@@ -14,10 +14,11 @@ interface ILabeledInputProps {
 
 const StyledDiv = styled.div`
   display: flex;
-  margin: 5px 0;
-  width: 300px;
+  flex-direction: column;
+  width: 200px;
   justify-content: space-between;
 `;
+
 const LabeledInput = ({ name, ...rest }: ILabeledInputProps): ReactElement => {
   return (
     <StyledDiv>
