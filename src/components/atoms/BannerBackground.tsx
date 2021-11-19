@@ -1,12 +1,11 @@
 import React, { CSSProperties, forwardRef, ReactElement, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
+import { justifying } from '@styles/css';
 
 const StyledDiv = styled.div`
-  display: flex;
+  ${justifying.centering}
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   padding: 20px 0;
   position: relative;

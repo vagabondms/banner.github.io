@@ -3,6 +3,7 @@ import { SketchPicker, ColorChangeHandler } from 'react-color';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { border, sizing, spacing } from '@styles/css';
 type TPickerPositionEnum = 'top' | 'left' | 'right' | 'bottom';
 
 export interface IColorPickerProps {
@@ -13,13 +14,11 @@ export interface IColorPickerProps {
 }
 
 const StyledDiv = styled.div`
-  width: 100px;
-  height: 30px;
-  border: 1px solid #facf5a;
-  border-radius: 4px;
+  ${sizing.small}
+  border : ${border.orangeLightBorder};
+  ${border.defaultRadius}
+  ${spacing.defaultSpacing}
   overflow: hidden;
-  padding: 4px;
-  margin: 5px;
 `;
 const StyledInnerDiv = styled.div`
   height: 100%;

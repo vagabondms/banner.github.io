@@ -9,6 +9,7 @@
       "@molecules/*": ["src/components/molecules/*"],
       "@organisms/*": ["src/components/organisms/*"],
       "@styles/*": ["src/styles/*"],
+      "@css": ["src/styles/css"],
       "@styles": ["src/styles"],
       "@/*": ["src/*"]
     }

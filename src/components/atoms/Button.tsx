@@ -1,6 +1,7 @@
 import React, { CSSProperties, ReactElement } from 'react';
 
 import styled from '@emotion/styled';
+import { border, colors, fonts, sizing, spacing } from '@styles/css';
 
 export interface IButtonProps {
   text: string;
@@ -9,19 +10,19 @@ export interface IButtonProps {
 }
 
 const StyledButton = styled.button`
-  background-color: #4f9da6;
-  color: #233142;
+  background-color: ${colors.blue};
+  color: ${colors.black};
+  ${border.defaultRadius}
+  ${sizing.large}
+  ${spacing.defaultSpacing}
+  ${fonts.buttonSize}
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  width: 200px;
+  margin-top: 10px;
   height: 50px;
-  font-size: 20px;
   font-weight: bold;
 
   :hover {
-    /* animation: shake 0.4s;
-    animation-iteration-count: infinite; */
     box-shadow: 2px 2px 2px lightgrey;
     background-color: #5ec59ad8;
   }
