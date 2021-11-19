@@ -1,6 +1,7 @@
 import React, { memo, ReactNode, ReactElement, LabelHTMLAttributes } from 'react';
 
 import styled from '@emotion/styled';
+import { colors, fonts, spacing } from '@styles/css';
 
 interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   children: ReactNode;
@@ -8,8 +9,9 @@ interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
 
 const StyledLabel = styled.label`
   background: transparent;
-  color: #4f9da6;
-  font-size: 15px;
+  color: ${colors.blue};
+  ${spacing.labelSpacing}
+  ${fonts.largeSize}
   font-weight: bold;
   white-space: nowrap;
 `;

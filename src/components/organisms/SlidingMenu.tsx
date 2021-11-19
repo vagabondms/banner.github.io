@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 import Divider from '@atoms/Divider';
 import SlidingModal from '@atoms/SlidingModal';
 import { TSlidingModalProps } from '@atoms/SlidingModal';
+import Toggle from '@atoms/Toggle';
 import { useData } from '@hooks/useData';
 import LabeledSelector from '@molecules/LabeledSelector';
 import { fontSizeGenerator, fontGenerator } from '@utils/data';
@@ -49,6 +50,8 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
       <Divider dividerType="parallel" />
       <LabeledSelector options={widthGenerator()} value={width} onChange={onWidthChange} name="배경 넓이"></LabeledSelector>
       <LabeledSelector options={heightGenerator()} value={height} onChange={onHeightChange} name="배경 높이"></LabeledSelector>
+      <Divider dividerType="parallel" />
+      <Toggle></Toggle>
     </SlidingModal>
   );
 };
