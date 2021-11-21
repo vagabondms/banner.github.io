@@ -38,15 +38,16 @@ const App = (): ReactElement => {
         <BackgroundBox />
         <Wrapper wrapperType="button">
           <Button
-            text={`추가 설정 ${visible ? '닫기' : '열기'}`}
+            text="다운로드"
+            buttonType="point"
             onClick={() => {
-              setVisible(!visible);
+              captureImage();
             }}
           ></Button>
           <Button
-            text="다운로드"
+            text={`추가 설정 ${visible ? '닫기' : '열기'}`}
             onClick={() => {
-              captureImage();
+              setVisible(!visible);
             }}
           ></Button>
         </Wrapper>

@@ -12,12 +12,12 @@ const handleVisible = ({ visible }: TSlidingModalProps) => {
   switch (visible) {
     case true:
       return css`
-        width: 190px;
+        left: 0;
         opacity: 1;
       `;
     case false:
       return css`
-        width: 0px;
+        left: -190px;
         opacity: 0;
         * {
           display: none;
@@ -31,7 +31,7 @@ const handleVisible = ({ visible }: TSlidingModalProps) => {
 const StyledDiv = styled.div`
   height: 100%;
   position: absolute;
-  right: 0;
+  width: 190px;
   top: 0;
   bottom: 0;
   background-color: #7281945f;

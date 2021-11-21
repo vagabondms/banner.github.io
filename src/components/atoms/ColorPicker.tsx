@@ -19,6 +19,7 @@ const StyledDiv = styled.div`
   ${border.defaultRadius}
   ${spacing.defaultSpacing}
   overflow: hidden;
+  cursor: pointer;
 `;
 const StyledInnerDiv = styled.div`
   height: 100%;
