@@ -17,6 +17,7 @@ const StyledDiv = styled.div`
   font-weight: bold;
   color: ${colors.red};
   z-index: 10;
+  border-bottom: 1px solid #b3b1b5;
 `;
 
 const StyledA = styled.a`
