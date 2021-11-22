@@ -2,26 +2,14 @@ import React, { useContext, createContext, ReactElement, ReactEventHandler, useE
 
 import { getDataFromLocalStorage, setDataInLocalStorage } from '@utils/localStorage';
 
-import { useBannerState } from './useBannerState';
+import { TData, useBannerState } from './useBannerState';
 export interface IProviderProps {
   children: ReactElement;
 }
 
 interface IContext {
-  data: {
-    title: string;
-    subTitle: string;
-    tag: string;
-    height: number;
-    width: number;
-    font: string;
-    backgroundColor: string;
-    fontColor: string;
-    titleFontSize: number;
-    subTitleFontSize: number;
-    tagFontSize: number;
-  };
-  onChangeHandler: (key: string) => ReactEventHandler;
+  data: TData;
+  onChangeHandler: (key: keyof TData) => ReactEventHandler;
 }
 
 const dataContext = createContext<IContext>({

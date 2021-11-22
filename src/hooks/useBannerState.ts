@@ -1,20 +1,22 @@
 import { useState } from 'react';
 
-export const useBannerState = (): [any, any, any] => {
-  const initialState = {
-    title: '',
-    subTitle: '',
-    tag: '',
-    font: 'Noto-sans',
-    height: 350,
-    width: 700,
-    titleFontSize: 55,
-    subTitleFontSize: 25,
-    tagFontSize: 15,
-    fontColor: '#533535',
-    backgroundColor: '#E6CCA9',
-  };
+const initialState = {
+  title: '',
+  subTitle: '',
+  tag: '',
+  font: 'Noto-sans',
+  height: 350,
+  width: 700,
+  titleFontSize: 55,
+  subTitleFontSize: 25,
+  tagFontSize: 15,
+  fontColor: '#533535',
+  backgroundColor: '#E6CCA9',
+};
 
+export type TData = typeof initialState;
+
+export const useBannerState = (): [TData, typeof setData, typeof onChangeHandler] => {
   const [data, setData] = useState(initialState);
 
   const onChangeHandler = (key: keyof typeof initialState) => (e: any) => {

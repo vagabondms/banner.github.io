@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactEventHandler, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { SketchPicker } from 'react-color';
 
 import { css } from '@emotion/react';
@@ -8,7 +8,7 @@ type TPickerPositionEnum = 'top' | 'left' | 'right' | 'bottom';
 
 export interface IColorPickerProps {
   name: string;
-  onChange: any;
+  onChange: (e: any) => void;
   color: string;
   pickerPosition?: TPickerPositionEnum;
 }
