@@ -1,5 +1,7 @@
 import { TData } from '@hooks/useBannerState';
 
+import { isJSON } from './data';
+
 export const setDataInLocalStorage = (key: string, data: TData): void => {
   const stringifiedData = JSON.stringify(data);
   localStorage.setItem(key, stringifiedData);
@@ -8,7 +10,7 @@ export const setDataInLocalStorage = (key: string, data: TData): void => {
 
 export const getDataFromLocalStorage = (key: string): TData | void => {
   const data = localStorage.getItem(key) ?? '';
-  if (data) {
+  if (isJSON(data)) {
     const parsedData = JSON.parse(data);
     return parsedData;
   }

@@ -60,3 +60,12 @@ export const fontSizeGenerator = (fontType: TFontType): TOptions => {
   }
   return result;
 };
+
+export const isJSON = (val: any): boolean => {
+  try {
+    JSON.parse(val);
+  } catch (error) {
+    return false;
+  }
+  return true;
+};
