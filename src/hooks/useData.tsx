@@ -1,4 +1,4 @@
-import React, { useContext, createContext, ReactElement, ReactEventHandler, ChangeEvent } from 'react';
+import React, { useContext, createContext, useState, ReactElement, ReactEventHandler, ChangeEvent, useEffect } from 'react';
 import { ColorChangeHandler } from 'react-color';
 
 import useColor from './useColor';

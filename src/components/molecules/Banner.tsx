@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect } from 'react';
 
 import BannerBackground from '@atoms/BannerBackground';
 import BannerText from '@atoms/BannerText';
