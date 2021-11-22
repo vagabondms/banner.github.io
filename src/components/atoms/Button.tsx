@@ -2,7 +2,7 @@ import React, { CSSProperties, ReactElement } from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { border, colors, fonts, sizing, spacing } from '@styles/css';
+import { border, colors, fonts, spacing } from '@styles/css';
 
 export interface IButtonProps {
   text: string;
@@ -18,23 +18,27 @@ const handleButtonType = ({ buttonType }: TStyledButtonProps) => {
     case 'point':
       return css`
         background-color: ${colors.red};
+        height: 50px;
+        width: 200px;
+        ${fonts.buttonSize}
       `;
     default:
       return css`
         background-color: ${colors.blue};
+        font-size: 15px;
+        width: 150px;
+        height: 35px;
       `;
   }
 };
 
 const StyledButton = styled.button<TStyledButtonProps>`
   ${border.defaultRadius}
-  ${sizing.large}
   ${spacing.defaultSpacing}
-  ${fonts.buttonSize}
+  
   border: none;
   cursor: pointer;
   margin-top: 10px;
-  height: 50px;
   font-weight: bold;
   opacity: 0.9;
   color: ${colors.black};

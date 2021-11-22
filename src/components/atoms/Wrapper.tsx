@@ -2,7 +2,7 @@ import React, { ReactElement, forwardRef } from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { justifying, spacing } from '@styles/css';
+import { justifying } from '@styles/css';
 
 type TWrapperType = 'box' | 'button' | 'sub' | 'banner' | 'label';
 
@@ -27,7 +27,6 @@ const handleWrapperType = ({ wrapperType }: TWrapperProps) => {
       `;
     case 'sub':
       return css`
-        flex-direction: column;
         ${justifying.centering}
       `;
     case 'banner':
