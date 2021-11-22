@@ -13,15 +13,14 @@ import capture from 'html2canvas';
 const App = (): ReactElement => {
   const bannerRef = useRef<HTMLDivElement>(null);
 
-  const { title, subTitle, tag, width, height, font, fontColor, backgroundColor, titleFontSize, subTitleFontSize, tagFontSize } =
-    useData();
+  const { data } = useData();
 
   const captureImage = async () => {
     if (bannerRef.current) {
       const result = await capture(bannerRef.current);
       if (result) {
         const link = document.createElement('a');
-        const underbarTitle = title.replaceAll(/(\s)+/g, '_');
+        const underbarTitle = data.title.replaceAll(/(\s)+/g, '_');
         link.download = `${underbarTitle}.png`;
         link.href = result?.toDataURL() ?? '';
         link.click();
@@ -29,22 +28,7 @@ const App = (): ReactElement => {
     }
   };
   const setDataInLocalStorage = () => {
-    localStorage.setItem(
-      'data',
-      JSON.stringify({
-        title,
-        subTitle,
-        tag,
-        width,
-        height,
-        font,
-        fontColor,
-        backgroundColor,
-        titleFontSize,
-        subTitleFontSize,
-        tagFontSize,
-      }),
-    );
+    localStorage.setItem('data', JSON.stringify(data));
   };
 
   return (

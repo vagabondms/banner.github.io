@@ -12,44 +12,44 @@ type TSlidingMenuProps = TSlidingModalProps;
 
 const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
   const {
-    width,
-    height,
-    font,
-    onFontChange,
-    onWidthChange,
-    onHeightChange,
-    titleFontSize,
-    subTitleFontSize,
-    tagFontSize,
-    onTitleFontSizeChange,
-    onSubTitleFontSizeChange,
-    onTagFontSizeChange,
+    data: { width, height, font, titleFontSize, subTitleFontSize, tagFontSize },
+    onChangeHandler,
   } = useData();
   return (
     <SlidingModal visible={visible}>
-      <LabeledSelector name="폰트" value={font} onChange={onFontChange} options={fontGenerator()}></LabeledSelector>
+      <LabeledSelector name="폰트" value={font} onChange={onChangeHandler('font')} options={fontGenerator()}></LabeledSelector>
       <Divider dividerType="parallel" />
       <LabeledSelector
         name="제목"
         value={titleFontSize}
-        onChange={onTitleFontSizeChange}
+        onChange={onChangeHandler('titleFontSize')}
         options={fontSizeGenerator('title')}
       ></LabeledSelector>
       <LabeledSelector
         name="부제목"
         value={subTitleFontSize}
-        onChange={onSubTitleFontSizeChange}
+        onChange={onChangeHandler('subTitleFontSize')}
         options={fontSizeGenerator('subTitle')}
       ></LabeledSelector>
       <LabeledSelector
         name="태그"
         value={tagFontSize}
-        onChange={onTagFontSizeChange}
+        onChange={onChangeHandler('titleFontSize')}
         options={fontSizeGenerator('tag')}
       ></LabeledSelector>
       <Divider dividerType="parallel" />
-      <LabeledSelector options={widthGenerator()} value={width} onChange={onWidthChange} name="배경 넓이"></LabeledSelector>
-      <LabeledSelector options={heightGenerator()} value={height} onChange={onHeightChange} name="배경 높이"></LabeledSelector>
+      <LabeledSelector
+        options={widthGenerator()}
+        value={width}
+        onChange={onChangeHandler('width')}
+        name="배경 넓이"
+      ></LabeledSelector>
+      <LabeledSelector
+        options={heightGenerator()}
+        value={height}
+        onChange={onChangeHandler('height')}
+        name="배경 높이"
+      ></LabeledSelector>
       <Divider dividerType="parallel" />
       <Toggle></Toggle>
     </SlidingModal>

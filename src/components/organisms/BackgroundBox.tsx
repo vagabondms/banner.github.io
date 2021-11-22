@@ -8,21 +8,24 @@ import SlidingMenu from '@organisms/SlidingMenu';
 
 const BackgroundBox = (): ReactElement => {
   const [visible, setVisible] = useState(false);
-  const { backgroundColor, onBackgroundColorChange, fontColor, onFontColorChange } = useData();
+  const {
+    data: { backgroundColor, fontColor },
+    onChangeHandler,
+  } = useData();
   return (
     <Wrapper wrapperType="box">
       <Wrapper wrapperType="sub">
         <LabeledColorPicker
           pickerPosition="top"
           color={fontColor}
-          onChange={onFontColorChange}
+          onChange={onChangeHandler('fontColor')}
           name="폰트색"
         ></LabeledColorPicker>
         <LabeledColorPicker
           name="배경색"
           pickerPosition="top"
           color={backgroundColor}
-          onChange={onBackgroundColorChange}
+          onChange={onChangeHandler('backgroundColor')}
         ></LabeledColorPicker>
       </Wrapper>
 
