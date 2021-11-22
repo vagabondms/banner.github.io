@@ -4,8 +4,10 @@ export const setDataInLocalStorage = (key: string, data: Record<string, string |
   return;
 };
 
-export const getDataFromLocalStorage = (key: string): Record<string, string | number> => {
+export const getDataFromLocalStorage = (key: string): Record<string, string | number> | void => {
   const data = localStorage.getItem(key) ?? '';
-  const parsedData = JSON.parse(data);
-  return parsedData;
+  if (data) {
+    const parsedData = JSON.parse(data);
+    return parsedData;
+  }
 };

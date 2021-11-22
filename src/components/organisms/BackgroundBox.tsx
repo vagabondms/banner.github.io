@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react';
 
 import Button from '@atoms/Button';
 import Wrapper from '@atoms/Wrapper';
-import { useData } from '@hooks/useData';
+import { useData } from '@hooks/useDataContext';
 import LabeledColorPicker from '@molecules/LabeledColorPicker';
 import SlidingMenu from '@organisms/SlidingMenu';
 

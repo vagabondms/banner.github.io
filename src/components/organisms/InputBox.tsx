@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import Wrapper from '@atoms/Wrapper';
-import { useData } from '@hooks/useData';
+import { useData } from '@hooks/useDataContext';
 import LabeledInput from '@molecules/LabeledInput';
 
 const InputBox = (): ReactElement => {

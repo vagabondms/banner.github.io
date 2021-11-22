@@ -1,8 +1,8 @@
-import React, { useContext, createContext, ReactElement, ReactEventHandler } from 'react';
-import { ColorChangeHandler } from 'react-color';
+import React, { useContext, createContext, ReactElement, ReactEventHandler, useEffect } from 'react';
 
-import { useData2 } from './useData2';
+import { getDataFromLocalStorage, setDataInLocalStorage } from '@utils/localStorage';
 
+import { useBannerState } from './useBannerState';
 export interface IProviderProps {
   children: ReactElement;
 }
@@ -42,7 +42,18 @@ const dataContext = createContext<IContext>({
 });
 
 export const Provider = ({ children }: IProviderProps): ReactElement => {
-  const [data, , onChangeHandler] = useData2();
+  const [data, setData, onChangeHandler] = useBannerState();
+
+  useEffect(() => {
+    const localStorageData = getDataFromLocalStorage('data');
+    if (localStorageData) {
+      setData(localStorageData);
+    }
+  }, [setData]);
+
+  useEffect(() => {
+    setDataInLocalStorage('data', data);
+  }, [data]);
 
   const value = {
     data,

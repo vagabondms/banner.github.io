@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { setDataInLocalStorage } from '@utils/localStorage';
-
-export const useData2 = (): [any, any, any] => {
+export const useBannerState = (): [any, any, any] => {
   const initialState = {
     title: '',
     subTitle: '',

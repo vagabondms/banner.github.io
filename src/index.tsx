@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider } from '@hooks/useData';
+import { Provider } from '@hooks/useDataContext';
 import GlobalStyles from '@styles/global-styles';
 
 import App from './App';

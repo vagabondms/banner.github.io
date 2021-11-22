@@ -4,7 +4,7 @@ import Divider from '@atoms/Divider';
 import SlidingModal from '@atoms/SlidingModal';
 import { TSlidingModalProps } from '@atoms/SlidingModal';
 import Toggle from '@atoms/Toggle';
-import { useData } from '@hooks/useData';
+import { useData } from '@hooks/useDataContext';
 import LabeledSelector from '@molecules/LabeledSelector';
 import { fontSizeGenerator, fontGenerator } from '@utils/data';
 import { widthGenerator, heightGenerator } from '@utils/data';
