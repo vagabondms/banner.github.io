@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import Divider from '@atoms/Divider';
 import SlidingModal from '@atoms/SlidingModal';
@@ -25,6 +25,11 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
     onSubTitleFontSizeChange,
     onTagFontSizeChange,
   } = useData();
+
+  const [toggleState, setToggleState] = useState(true);
+  const onClickHandler = () => {
+    setToggleState((prev) => !prev);
+  };
   return (
     <SlidingModal visible={visible}>
       <LabeledSelector name="폰트" value={font} onChange={onFontChange} options={fontGenerator()}></LabeledSelector>
@@ -51,7 +56,7 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
       <LabeledSelector options={widthGenerator()} value={width} onChange={onWidthChange} name="배경 넓이"></LabeledSelector>
       <LabeledSelector options={heightGenerator()} value={height} onChange={onHeightChange} name="배경 높이"></LabeledSelector>
       <Divider dividerType="parallel" />
-      <Toggle></Toggle>
+      <Toggle state={toggleState} onClickHandler={onClickHandler}></Toggle>
     </SlidingModal>
   );
 };

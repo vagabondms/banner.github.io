@@ -1,22 +1,53 @@
-import React from 'react';
+import React, { HTMLAttributes, ReactElement, ReactEventHandler } from 'react';
 
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { colors } from '@styles/css';
 
-const ToggleOuter = styled.div`
+export interface TToggleProps extends HTMLAttributes<HTMLDivElement> {
+  state: boolean;
+  onClickHandler: ReactEventHandler;
+}
+
+type TStyledToggleOuterProps = Omit<TToggleProps, 'onClickHandler' | 'state'>;
+type TStyledToggleInnerProps = Omit<TToggleProps, 'onClickHandler'>;
+
+const stateHandler = ({ state }: TStyledToggleInnerProps) => {
+  switch (state) {
+    case true:
+      return css``;
+    case false:
+      return css``;
+    default:
+      return css``;
+  }
+};
+
+const ToggleOuter = styled.div<TStyledToggleOuterProps>`
   width: 50px;
-  position: relative;
-  padding: 10px;
+  height: 24px;
+  padding: 2px;
   margin: 5px;
   border-radius: 10px;
-  background-color: #ff5959;
+  background-color: ${colors.red};
+  display: flex;
 `;
 
-const ToggleInner = styled.div``;
+const ToggleInner = styled.div<TStyledToggleInnerProps>`
+  background-color: ${colors.blue};
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  transition: all 0.2s;
 
-const Toggle = () => {
+  ${stateHandler};
+`;
+
+const Toggle = ({ state, onClickHandler, ...rest }: TToggleProps): ReactElement => {
+  console.log(state);
   return (
-    <ToggleOuter>
-      <ToggleInner />
+    <ToggleOuter onClick={onClickHandler} {...rest}>
+      <ToggleInner state={state} />
     </ToggleOuter>
   );
 };

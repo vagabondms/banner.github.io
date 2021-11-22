@@ -15,7 +15,7 @@ const handleDividerType = ({ dividerType }: TDividerProps) => {
       return css`
         width: 110px;
         border-bottom: 1px solid lightgrey;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
         padding-top: 20px;
       `;
     case 'vertical':
