@@ -1,12 +1,11 @@
 import React, { CSSProperties, ReactNode, ReactElement } from 'react';
 
 import styled from '@emotion/styled';
+import { justifying } from '@styles/css';
 
 const StyledDiv = styled.div`
   white-space: nowrap;
-  display: flex;
-  align-content: center;
-  justify-content: center;
+  ${justifying.centering}
 `;
 
 type TBannerText = {

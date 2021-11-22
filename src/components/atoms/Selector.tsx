@@ -1,6 +1,7 @@
 import React, { ReactElement, ReactEventHandler, SelectHTMLAttributes } from 'react';
 
 import styled from '@emotion/styled';
+import { border, colors, fonts, justifying, sizing, spacing } from '@styles/css';
 
 export type TOption = { label: string | number; value: string | number };
 export type TOptions = TOption[];
@@ -15,18 +16,15 @@ const StyledSelect = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-
-  text-align: center;
-  border: 1px solid #facf5a;
-  width: 100px;
-  height: 30px;
-
-  background: transparent;
-  color: #facf5a;
-  margin: 5px;
-  padding: 4px;
-  border-radius: 4px;
   outline: 0 none;
+  ${fonts.mainSize}
+  ${justifying.centering}
+  ${border.defaultRadius}
+  border: ${border.orangeLightBorder};
+  ${sizing.small}
+  ${spacing.defaultSpacing}
+  background: transparent;
+  color: ${colors.orange};
 `;
 const StyledOption = styled.option``;
 

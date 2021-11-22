@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes, ReactElement, ReactEventHandler, HTMLAttributes } from 'react';
 
 import styled from '@emotion/styled';
+import { border, colors, fonts, sizing, spacing } from '@styles/css';
 
 export interface IInputProp extends HTMLAttributes<HTMLInputElement> {
   onChange: ReactEventHandler;
@@ -9,14 +10,14 @@ export interface IInputProp extends HTMLAttributes<HTMLInputElement> {
 type TStyledInputProp = InputHTMLAttributes<Element>;
 
 const StyledInput = styled.input<TStyledInputProp>`
-  border: none;
   text-align: center;
   background: transparent;
-  color: #ff5959;
-  font-size: 15px;
-  border-bottom: 1px solid #facf5a;
-  width: 200px;
-  margin: 5px;
+  color: ${colors.blue};
+  ${fonts.mainSize}
+  border: ${border.orangeLightBorder};
+  ${border.defaultRadius}
+  ${sizing.large}
+  ${spacing.defaultSpacing}
   :focus {
     outline: none;
     caret-color: #5ec59a;

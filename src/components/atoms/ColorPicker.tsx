@@ -1,25 +1,25 @@
 import React, { ReactElement, useState } from 'react';
-import { SketchPicker, ColorChangeHandler } from 'react-color';
+import { SketchPicker } from 'react-color';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { border, sizing, spacing } from '@styles/css';
 type TPickerPositionEnum = 'top' | 'left' | 'right' | 'bottom';
 
 export interface IColorPickerProps {
   name: string;
-  onChange: ColorChangeHandler;
+  onChange: (e: any) => void;
   color: string;
   pickerPosition?: TPickerPositionEnum;
 }
 
 const StyledDiv = styled.div`
-  width: 100px;
-  height: 30px;
-  border: 1px solid #facf5a;
-  border-radius: 4px;
+  ${sizing.small}
+  border : ${border.orangeLightBorder};
+  ${border.defaultRadius}
+  ${spacing.defaultSpacing}
   overflow: hidden;
-  padding: 4px;
-  margin: 5px;
+  cursor: pointer;
 `;
 const StyledInnerDiv = styled.div`
   height: 100%;
