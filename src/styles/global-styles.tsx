@@ -84,7 +84,7 @@ const GlobalStyles = (): ReactElement => {
         #root {
           height: 100vh;
           width: 100vw;
-          min-width: 1100px;
+          /* min-width: 1100px; */
           min-height: 790px;
           padding: 0;
           margin: 0;

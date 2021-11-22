@@ -2,6 +2,7 @@ import React, { ReactElement, forwardRef } from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { justifying } from '@styles/css';
 
 type TWrapperType = 'box' | 'button' | 'sub' | 'banner' | 'label';
 
@@ -14,33 +15,30 @@ const handleWrapperType = ({ wrapperType }: TWrapperProps) => {
   switch (wrapperType) {
     case 'box':
       return css`
-        width: 650px;
-        justify-content: space-between;
-        align-items: center;
+        width: 700px;
+        ${justifying.spaceBetween}
       `;
     case 'button':
       return css`
         flex-direction: row-reverse;
-        justify-content: space-between;
-        width: 650px;
-        align-items: center;
+        ${justifying.spaceBetween}
+        margin-top : 10px;
+        width: 700px;
       `;
     case 'sub':
       return css`
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        ${justifying.centering}
       `;
     case 'banner':
       return css`
-        justify-content: center;
-        height: 450px;
-        align-items: center;
+        ${justifying.centering}
+        height: 410px;
       `;
     case 'label':
       return css`
         display: flex;
         flex-direction: column;
+        text-align: left;
       `;
     default:
       return css``;
@@ -48,8 +46,6 @@ const handleWrapperType = ({ wrapperType }: TWrapperProps) => {
 };
 
 const StyledDiv = styled.div`
-  display: flex;
-  margin: 5px 0;
   ${handleWrapperType};
 `;
 
