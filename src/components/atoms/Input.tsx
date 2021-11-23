@@ -15,7 +15,7 @@ type TStyledInputProp = InputHTMLAttributes<Element>;
 const StyledInput = styled.input<TStyledInputProp>`
   text-align: center;
   background: transparent;
-  color: ${colors.red};
+  color: ${colors.blue};
   ${fonts.mainSize}
   border: ${border.orangeLightBorder};
   ${border.defaultRadius}

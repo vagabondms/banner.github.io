@@ -7,16 +7,15 @@ import styled from '@emotion/styled';
 
 const StyledDiv = styled.div`
   width: 100%;
-  min-width: 1100px;
   height: 50px;
-  background-color: ${colors.red};
+  background-color: ${colors.black};
   ${fonts.buttonSize}
   display: flex;
   align-items: center;
-  flex-direction: row-reverse;
+  flex-direction: row;
   padding: 10px;
   font-weight: bold;
-  color: ${colors.black};
+  color: ${colors.red};
   z-index: 10;
 `;
 
