@@ -1,12 +1,14 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import Divider from '@atoms/Divider';
 import SlidingModal from '@atoms/SlidingModal';
 import { TSlidingModalProps } from '@atoms/SlidingModal';
+import Toggle from '@atoms/Toggle';
 import { useData } from '@hooks/useDataContext';
 import LabeledSelector from '@molecules/LabeledSelector';
 import { fontSizeGenerator, fontGenerator } from '@utils/data';
 import { widthGenerator, heightGenerator } from '@utils/data';
+
 type TSlidingMenuProps = TSlidingModalProps;
 
 const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
@@ -14,6 +16,11 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
     data: { width, height, font, titleFontSize, subTitleFontSize, tagFontSize },
     onChangeHandler,
   } = useData();
+
+  const [toggleState, setToggleState] = useState(true);
+  const onClickHandler = () => {
+    setToggleState((prev) => !prev);
+  };
   return (
     <SlidingModal visible={visible}>
       <LabeledSelector name="폰트" value={font} onChange={onChangeHandler('font')} options={fontGenerator()}></LabeledSelector>
@@ -50,6 +57,7 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
         name="배경 높이"
       ></LabeledSelector>
       <Divider dividerType="parallel" />
+      <Toggle state={toggleState} onClickHandler={onClickHandler}></Toggle>
     </SlidingModal>
   );
 };

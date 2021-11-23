@@ -12,18 +12,20 @@ export interface ISelectorProps extends SelectHTMLAttributes<HTMLSelectElement> 
   onChange: ReactEventHandler;
 }
 
-const StyledSelect = styled.select`
+type TStyledSelectorProps = Omit<ISelectorProps, 'options'>;
+
+const StyledSelect = styled.select<TStyledSelectorProps>`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: 0 none;
+  background: transparent;
   ${fonts.mainSize}
   ${justifying.centering}
   ${border.defaultRadius}
   border: ${border.orangeLightBorder};
   ${sizing.small}
   ${spacing.defaultSpacing}
-  background: transparent;
   color: ${colors.orange};
 `;
 const StyledOption = styled.option``;
