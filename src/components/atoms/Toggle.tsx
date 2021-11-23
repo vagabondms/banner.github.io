@@ -9,17 +9,45 @@ export interface TToggleProps extends HTMLAttributes<HTMLDivElement> {
   onClickHandler: ReactEventHandler;
 }
 
-type TStyledToggleOuterProps = Omit<TToggleProps, 'onClickHandler' | 'state'>;
+type TStyledToggleOuterProps = Omit<TToggleProps, 'onClickHandler'>;
 type TStyledToggleInnerProps = Omit<TToggleProps, 'onClickHandler'>;
 
-const stateHandler = ({ state }: TStyledToggleInnerProps) => {
+const stateHandlerOuter = ({ state }: TStyledToggleInnerProps) => {
   switch (state) {
     case true:
-      return css``;
+      return css`
+        @keyframes bright {
+          from {
+            filter: brightness(70%);
+          }
+          to {
+            filter: brightness(100%);
+          }
+        }
+        animation: bright 0.5s forwards;
+      `;
     case false:
-      return css``;
+      return css`
+        @keyframes dim {
+          from {
+            filter: brightness(100%);
+          }
+          to {
+            filter: brightness(70%);
+          }
+        }
+        animation: dim 0.5s forwards;
+      `;
     default:
       return css``;
+  }
+};
+
+const stateHandlerInner = ({ state }: TStyledToggleInnerProps) => {
+  if (!state) {
+    return css`
+      transform: translateX(130%);
+    `;
   }
 };
 
@@ -30,7 +58,8 @@ const ToggleOuter = styled.div<TStyledToggleOuterProps>`
   margin: 5px;
   border-radius: 10px;
   background-color: ${colors.red};
-  display: flex;
+
+  ${stateHandlerOuter};
 `;
 
 const ToggleInner = styled.div<TStyledToggleInnerProps>`
@@ -38,15 +67,15 @@ const ToggleInner = styled.div<TStyledToggleInnerProps>`
   width: 20px;
   height: 20px;
   border-radius: 20px;
-  transition: all 0.2s;
+  transition: all 0.5s;
 
-  ${stateHandler};
+  ${stateHandlerInner};
 `;
 
 const Toggle = ({ state, onClickHandler, ...rest }: TToggleProps): ReactElement => {
   console.log(state);
   return (
-    <ToggleOuter onClick={onClickHandler} {...rest}>
+    <ToggleOuter onClick={onClickHandler} state={state} {...rest}>
       <ToggleInner state={state} />
     </ToggleOuter>
   );
