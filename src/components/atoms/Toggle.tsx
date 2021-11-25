@@ -2,7 +2,7 @@ import React, { HTMLAttributes, ReactElement, ReactEventHandler } from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { colors } from '@styles/css';
+import { border, colors, fonts, justifying, sizing } from '@styles/css';
 
 export interface TToggleProps extends HTMLAttributes<HTMLDivElement> {
   state: boolean;
@@ -46,37 +46,37 @@ const stateHandlerOuter = ({ state }: TStyledToggleInnerProps) => {
 const stateHandlerInner = ({ state }: TStyledToggleInnerProps) => {
   if (!state) {
     return css`
-      transform: translateX(130%);
+      transform: translateX(100%);
     `;
   }
 };
 
 const ToggleOuter = styled.div<TStyledToggleOuterProps>`
-  width: 50px;
-  height: 24px;
+  ${sizing.small}
   padding: 2px;
   margin: 5px;
-  border-radius: 10px;
-  background-color: ${colors.red};
+
+  ${border.defaultRadius}
+  background-color: ${colors.black};
 
   ${stateHandlerOuter};
 `;
 
 const ToggleInner = styled.div<TStyledToggleInnerProps>`
   background-color: ${colors.blue};
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
+  ${border.defaultRadius}
+  width: 50%;
+  height: 100%;
   transition: all 0.5s;
-
+  ${justifying.centering}
   ${stateHandlerInner};
+  color: ${colors.orange};
 `;
 
 const Toggle = ({ state, onClickHandler, ...rest }: TToggleProps): ReactElement => {
-  console.log(state);
   return (
     <ToggleOuter onClick={onClickHandler} state={state} {...rest}>
-      <ToggleInner state={state} />
+      <ToggleInner state={state}>{state ? 'ON' : 'OFF'}</ToggleInner>
     </ToggleOuter>
   );
 };
