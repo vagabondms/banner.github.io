@@ -3,9 +3,9 @@ import React, { ReactElement, useState } from 'react';
 import Divider from '@atoms/Divider';
 import SlidingModal from '@atoms/SlidingModal';
 import { TSlidingModalProps } from '@atoms/SlidingModal';
-import Toggle from '@atoms/Toggle';
 import { useData } from '@hooks/useDataContext';
 import LabeledSelector from '@molecules/LabeledSelector';
+import LabeledToggle from '@molecules/LabeledToggle';
 import { fontSizeGenerator, fontGenerator } from '@utils/data';
 import { widthGenerator, heightGenerator } from '@utils/data';
 
@@ -57,7 +57,7 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
         name="배경 높이"
       ></LabeledSelector>
       <Divider dividerType="parallel" />
-      <Toggle state={toggleState} onClickHandler={onClickHandler}></Toggle>
+      <LabeledToggle name="밑줄 설정" state={toggleState} onClickHandler={onClickHandler}></LabeledToggle>
     </SlidingModal>
   );
 };

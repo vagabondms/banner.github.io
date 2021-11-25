@@ -14,6 +14,7 @@ const StyledLabel = styled.label`
   ${fonts.largeSize}
   font-weight: bold;
   white-space: nowrap;
+  width: 100%;
 `;
 
 const Label = ({ children, ...rest }: ILabelProps): ReactElement => {
