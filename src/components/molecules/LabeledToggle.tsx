@@ -4,7 +4,7 @@ import Label from '@atoms/Label';
 import Toggle, { TToggleProps } from '@atoms/Toggle';
 import Wrapper from '@atoms/Wrapper';
 
-interface ILabeledToggleProps extends TToggleProps {
+interface ILabeledToggleProps extends Omit<TToggleProps, 'id'> {
   name: string;
 }
 

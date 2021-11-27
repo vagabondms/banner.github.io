@@ -1,5 +1,4 @@
-import React, { ChangeEvent, useContext, createContext, ReactElement, useEffect, useState, AllHTMLAttributes } from 'react';
-import { ColorResult } from 'react-color';
+import React, { useContext, createContext, ReactElement, useEffect, useState } from 'react';
 
 import { getDataFromLocalStorage, setDataInLocalStorage } from '@utils/localStorage';
 export interface IProviderProps {
@@ -23,7 +22,7 @@ const initialState = {
 
 export type TData = typeof initialState;
 export type Key = keyof TData;
-export type TOnChangeHandlerEvent = ColorResult | ChangeEvent<AllHTMLAttributes<HTMLDivElement>>;
+
 interface IContext {
   data: TData;
   onChangeHandler: (key: keyof TData) => (e: any) => void;

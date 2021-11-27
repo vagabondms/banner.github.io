@@ -61,7 +61,7 @@ export const fontSizeGenerator = (fontType: TFontType): TOptions => {
   return result;
 };
 
-export const isJSON = (val: any): boolean => {
+export const isJSON = (val: string): boolean => {
   try {
     JSON.parse(val);
   } catch (error) {
