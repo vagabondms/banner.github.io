@@ -1,19 +1,19 @@
-import React, { HTMLAttributes, ReactElement, ReactEventHandler } from 'react';
+import React, { HTMLAttributes, ReactElement } from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { border, colors, fonts, justifying, sizing } from '@styles/css';
+import { border, colors, justifying, sizing } from '@styles/css';
 
 export interface TToggleProps extends HTMLAttributes<HTMLDivElement> {
-  state: boolean;
-  onClickHandler: ReactEventHandler;
+  checked: boolean;
+  onClick: any;
 }
 
-type TStyledToggleOuterProps = Omit<TToggleProps, 'onClickHandler'>;
-type TStyledToggleInnerProps = Omit<TToggleProps, 'onClickHandler'>;
+type TStyledToggleOuterProps = Omit<TToggleProps, 'onClick'>;
+type TStyledToggleInnerProps = Omit<TToggleProps, 'onClick'>;
 
-const stateHandlerOuter = ({ state }: TStyledToggleInnerProps) => {
-  switch (state) {
+const checkedHandlerOuter = ({ checked }: TStyledToggleInnerProps) => {
+  switch (checked) {
     case true:
       return css`
         @keyframes bright {
@@ -43,8 +43,8 @@ const stateHandlerOuter = ({ state }: TStyledToggleInnerProps) => {
   }
 };
 
-const stateHandlerInner = ({ state }: TStyledToggleInnerProps) => {
-  if (!state) {
+const checkedHandlerInner = ({ checked }: TStyledToggleInnerProps) => {
+  if (!checked) {
     return css`
       transform: translateX(100%);
     `;
@@ -59,7 +59,7 @@ const ToggleOuter = styled.div<TStyledToggleOuterProps>`
   ${border.defaultRadius}
   background-color: ${colors.black};
 
-  ${stateHandlerOuter};
+  ${checkedHandlerOuter};
 `;
 
 const ToggleInner = styled.div<TStyledToggleInnerProps>`
@@ -69,14 +69,18 @@ const ToggleInner = styled.div<TStyledToggleInnerProps>`
   height: 100%;
   transition: all 0.5s;
   ${justifying.centering}
-  ${stateHandlerInner};
+  ${checkedHandlerInner};
   color: ${colors.orange};
 `;
 
-const Toggle = ({ state, onClickHandler, ...rest }: TToggleProps): ReactElement => {
+const Toggle = ({ checked, onClick, ...rest }: TToggleProps): ReactElement => {
+  const onClickHandler = () => {
+    onClick(!checked);
+  };
+
   return (
-    <ToggleOuter onClick={onClickHandler} state={state} {...rest}>
-      <ToggleInner state={state}>{state ? 'ON' : 'OFF'}</ToggleInner>
+    <ToggleOuter checked={checked} onClick={onClickHandler} {...rest}>
+      <ToggleInner checked={checked}>{checked ? 'ON' : 'OFF'}</ToggleInner>
     </ToggleOuter>
   );
 };

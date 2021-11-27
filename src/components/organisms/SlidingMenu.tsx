@@ -13,14 +13,10 @@ type TSlidingMenuProps = TSlidingModalProps;
 
 const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
   const {
-    data: { width, height, font, titleFontSize, subTitleFontSize, tagFontSize },
+    data: { width, height, font, titleFontSize, subTitleFontSize, tagFontSize, underline },
     onChangeHandler,
   } = useData();
 
-  const [toggleState, setToggleState] = useState(true);
-  const onClickHandler = () => {
-    setToggleState((prev) => !prev);
-  };
   return (
     <SlidingModal visible={visible}>
       <LabeledSelector name="폰트" value={font} onChange={onChangeHandler('font')} options={fontGenerator()}></LabeledSelector>
@@ -57,7 +53,7 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
         name="배경 높이"
       ></LabeledSelector>
       <Divider dividerType="parallel" />
-      <LabeledToggle name="밑줄 설정" state={toggleState} onClickHandler={onClickHandler}></LabeledToggle>
+      <LabeledToggle name="밑줄 설정" checked={underline} onClick={onChangeHandler('underline')}></LabeledToggle>
     </SlidingModal>
   );
 };

@@ -1,4 +1,4 @@
-import { TData } from '@hooks/useBannerState';
+import { TData } from '@hooks/useDataContext';
 
 export const setDataInLocalStorage = (key: string, data: TData): void => {
   const stringifiedData = JSON.stringify(data);

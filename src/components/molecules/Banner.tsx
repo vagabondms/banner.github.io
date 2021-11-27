@@ -7,7 +7,20 @@ import { useData } from '@hooks/useDataContext';
 
 const Preview = forwardRef<HTMLDivElement>((_, ref) => {
   const {
-    data: { title, subTitle, tag, font, width, height, backgroundColor, fontColor, titleFontSize, subTitleFontSize, tagFontSize },
+    data: {
+      title,
+      subTitle,
+      tag,
+      font,
+      width,
+      height,
+      backgroundColor,
+      fontColor,
+      titleFontSize,
+      subTitleFontSize,
+      tagFontSize,
+      underline,
+    },
   } = useData();
 
   return (
@@ -15,8 +28,8 @@ const Preview = forwardRef<HTMLDivElement>((_, ref) => {
       <BannerBackground
         ref={ref}
         style={{
-          width: Number(width),
-          height: Number(height),
+          width: `${width}px`,
+          height: `${height}px`,
           fontFamily: font,
           backgroundColor,
           color: fontColor,
@@ -24,15 +37,15 @@ const Preview = forwardRef<HTMLDivElement>((_, ref) => {
       >
         <BannerText
           style={{
-            fontSize: Number(titleFontSize),
-            borderBottom: subTitle ? `3px solid ${fontColor}` : 'none',
+            fontSize: `${titleFontSize}px`,
+            borderBottom: subTitle && underline ? `3px solid ${fontColor}` : 'none',
             fontWeight: 'bold',
           }}
         >
           {title}
         </BannerText>
-        {subTitle && <BannerText style={{ fontSize: Number(subTitleFontSize), marginTop: 10 }}>{subTitle}</BannerText>}
-        {tag && <BannerText style={{ fontSize: Number(tagFontSize), position: 'absolute', bottom: 40 }}>{tag}</BannerText>}
+        {subTitle && <BannerText style={{ fontSize: `${subTitleFontSize}px`, marginTop: 10 }}>{subTitle}</BannerText>}
+        {tag && <BannerText style={{ fontSize: `${tagFontSize}px`, position: 'absolute', bottom: 40 }}>{tag}</BannerText>}
       </BannerBackground>
     </Wrapper>
   );
