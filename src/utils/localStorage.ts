@@ -1,4 +1,4 @@
-import { TData } from '@hooks/useBannerState';
+import { TData } from '@hooks/useDataContext';
 
 import { isJSON } from './data';
 

@@ -39,6 +39,7 @@ const handleWrapperType = ({ wrapperType }: TWrapperProps) => {
         display: flex;
         flex-direction: column;
         text-align: left;
+        align-items: center;
       `;
     default:
       return css``;
