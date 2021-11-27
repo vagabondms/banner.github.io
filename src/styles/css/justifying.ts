@@ -4,6 +4,7 @@ const defaultFlex = css`
   display: flex;
   align-items: center;
   text-align: center;
+  -webkit-flex-align: center;
 `;
 
 export const centering = css`

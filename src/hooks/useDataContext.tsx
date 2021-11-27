@@ -86,7 +86,7 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
     data,
     onChangeHandler,
   };
-  console.log(value);
+
   return <dataContext.Provider value={value}>{children}</dataContext.Provider>;
 };
 
