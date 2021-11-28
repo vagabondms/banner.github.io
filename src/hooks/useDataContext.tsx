@@ -9,7 +9,7 @@ const initialState = {
   title: '',
   subTitle: '',
   tag: '',
-  font: 'Noto-sans',
+  font: 'RIDIBatang',
   height: 350,
   width: 700,
   titleFontSize: 55,
