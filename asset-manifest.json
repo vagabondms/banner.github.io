@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/banner.github.io/static/js/main.639a07f2.chunk.js",
-    "main.js.map": "/banner.github.io/static/js/main.639a07f2.chunk.js.map",
+    "main.js": "/banner.github.io/static/js/main.b334c9de.chunk.js",
+    "main.js.map": "/banner.github.io/static/js/main.b334c9de.chunk.js.map",
     "runtime-main.js": "/banner.github.io/static/js/runtime-main.aa5f166d.js",
     "runtime-main.js.map": "/banner.github.io/static/js/runtime-main.aa5f166d.js.map",
     "static/js/2.1283d439.chunk.js": "/banner.github.io/static/js/2.1283d439.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.aa5f166d.js",
     "static/js/2.1283d439.chunk.js",
-    "static/js/main.639a07f2.chunk.js"
+    "static/js/main.b334c9de.chunk.js"
   ]
 }
