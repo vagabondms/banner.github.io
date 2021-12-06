@@ -34,7 +34,7 @@ const StyledDiv = styled.div`
   width: 190px;
   top: 0;
   bottom: 0;
-  background-color: #7281945f;
+  background-color: #3c4246;
   z-index: 1;
   ${handleVisible}
   transition : 0.5s

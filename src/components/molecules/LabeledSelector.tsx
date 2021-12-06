@@ -1,15 +1,12 @@
-import React, { ReactElement, ReactEventHandler } from 'react';
+import React, { ReactElement } from 'react';
 
 import Label from '@atoms/Label';
-import { TOptions } from '@atoms/Selector';
+import { ISelectorProps } from '@atoms/Selector';
 import Selector from '@atoms/Selector';
 import Wrapper from '@atoms/Wrapper';
 
-interface ILabeledInputProps {
+interface ILabeledInputProps extends ISelectorProps {
   name: string;
-  options: TOptions;
-  value: string | number;
-  onChange: ReactEventHandler;
 }
 
 const LabeledSelector = ({ name, options, value, onChange }: ILabeledInputProps): ReactElement => {

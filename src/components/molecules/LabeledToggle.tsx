@@ -1,18 +1,18 @@
 import React, { ReactElement } from 'react';
 
-import Input, { IInputProp } from '@atoms/Input';
 import Label from '@atoms/Label';
+import Toggle, { TToggleProps } from '@atoms/Toggle';
 import Wrapper from '@atoms/Wrapper';
 
-interface ILabeledInputProps extends IInputProp {
+interface ILabeledToggleProps extends TToggleProps {
   name: string;
 }
 
-const LabeledInput = ({ name, ...rest }: ILabeledInputProps): ReactElement => {
+const LabeledInput = ({ name, ...rest }: ILabeledToggleProps): ReactElement => {
   return (
     <Wrapper wrapperType="label">
       <Label htmlFor={name}>{name}</Label>
-      <Input id={name} {...rest}></Input>
+      <Toggle id={name} {...rest}></Toggle>
     </Wrapper>
   );
 };
