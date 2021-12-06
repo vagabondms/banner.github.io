@@ -5,6 +5,9 @@ import { border, colors, fonts, sizing, spacing } from '@styles/css';
 
 export interface IInputProp extends HTMLAttributes<HTMLInputElement> {
   onChange: ReactEventHandler;
+  placeholder: string;
+  type: 'text' | 'number';
+  value: string;
 }
 
 type TStyledInputProp = InputHTMLAttributes<Element>;
