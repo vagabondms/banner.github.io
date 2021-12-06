@@ -22,6 +22,7 @@ const StyledSelect = styled.select<TStyledSelectorProps>`
   background: transparent;
   ${fonts.mainSize}
   ${justifying.centering}
+  
   ${border.defaultRadius}
   border: ${border.orangeLightBorder};
   ${sizing.small}

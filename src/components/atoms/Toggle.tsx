@@ -1,16 +1,17 @@
-import React, { HTMLAttributes, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { border, colors, justifying, sizing } from '@styles/css';
 
-export interface TToggleProps extends HTMLAttributes<HTMLDivElement> {
+export interface TToggleProps {
+  id: string;
   checked: boolean;
-  onClick: any;
+  onClick: (e: any) => void;
 }
 
 type TStyledToggleOuterProps = Omit<TToggleProps, 'onClick'>;
-type TStyledToggleInnerProps = Omit<TToggleProps, 'onClick'>;
+type TStyledToggleInnerProps = Omit<TToggleProps, 'onClick' | 'id'>;
 
 const checkedHandlerOuter = ({ checked }: TStyledToggleInnerProps) => {
   switch (checked) {

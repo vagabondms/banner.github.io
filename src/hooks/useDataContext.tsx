@@ -1,5 +1,4 @@
-import React, { ChangeEvent, useContext, createContext, ReactElement, useEffect, useState, AllHTMLAttributes } from 'react';
-import { ColorResult } from 'react-color';
+import React, { useContext, createContext, ReactElement, useEffect, useState } from 'react';
 
 import { getDataFromLocalStorage, setDataInLocalStorage } from '@utils/localStorage';
 export interface IProviderProps {
@@ -10,7 +9,7 @@ const initialState = {
   title: '',
   subTitle: '',
   tag: '',
-  font: 'Noto-sans',
+  font: 'RIDIBatang',
   height: 350,
   width: 700,
   titleFontSize: 55,
@@ -23,7 +22,7 @@ const initialState = {
 
 export type TData = typeof initialState;
 export type Key = keyof TData;
-export type TOnChangeHandlerEvent = ColorResult | ChangeEvent<AllHTMLAttributes<HTMLDivElement>>;
+
 interface IContext {
   data: TData;
   onChangeHandler: (key: keyof TData) => (e: any) => void;
@@ -87,7 +86,7 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
     data,
     onChangeHandler,
   };
-  console.log(value);
+
   return <dataContext.Provider value={value}>{children}</dataContext.Provider>;
 };
 
