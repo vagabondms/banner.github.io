@@ -7,7 +7,7 @@ import { border, colors, justifying, sizing } from '@styles/css';
 export interface TToggleProps {
   id: string;
   checked: boolean;
-  onClick: (e: any) => void;
+  onClick: (e: boolean) => void;
 }
 
 type TStyledToggleOuterProps = Omit<TToggleProps, 'onClick'>;

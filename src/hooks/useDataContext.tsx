@@ -1,4 +1,5 @@
-import React, { useContext, createContext, ReactElement, useEffect, useState } from 'react';
+import React, { useContext, createContext, ReactElement, useEffect, useState, ChangeEvent } from 'react';
+import { ColorResult } from 'react-color';
 
 import { getDataFromLocalStorage, setDataInLocalStorage } from '@utils/localStorage';
 export interface IProviderProps {
@@ -25,7 +26,7 @@ export type Key = keyof TData;
 
 interface IContext {
   data: TData;
-  onChangeHandler: (key: keyof TData) => (e: any) => void;
+  onChangeHandler: (key: keyof TData) => (e: boolean | ColorResult | ChangeEvent<HTMLInputElement>) => void;
 }
 
 const dataContext = createContext<IContext>({
@@ -49,7 +50,7 @@ const dataContext = createContext<IContext>({
 export const Provider = ({ children }: IProviderProps): ReactElement => {
   const [data, setData] = useState(initialState);
 
-  const onChangeHandler = (key: Key) => (e: any) => {
+  const onChangeHandler = (key: Key) => (e: boolean | ColorResult | ChangeEvent<HTMLInputElement>) => {
     if (typeof e === 'boolean') {
       setData((prev) => ({
         ...prev,

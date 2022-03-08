@@ -1,10 +1,10 @@
-import React, { InputHTMLAttributes, ReactElement, ReactEventHandler, HTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, ReactElement, HTMLAttributes, ChangeEvent } from 'react';
 
 import styled from '@emotion/styled';
 import { border, colors, fonts, sizing, spacing } from '@styles/css';
 
 export interface IInputProp extends HTMLAttributes<HTMLInputElement> {
-  onChange: ReactEventHandler;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   type: 'text' | 'number';
   value: string;
