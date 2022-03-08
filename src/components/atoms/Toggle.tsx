@@ -56,7 +56,9 @@ const ToggleOuter = styled.div<TStyledToggleOuterProps>`
   ${sizing.small}
   padding: 2px;
   margin: 5px;
-
+  &:hover {
+    cursor: pointer;
+  }
   ${border.defaultRadius}
   background-color: ${colors.black};
 
