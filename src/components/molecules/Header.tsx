@@ -28,6 +28,10 @@ const StyledH1 = styled.h1`
   display: none;
 `;
 
+const StyledTitle = styled.div`
+  cursor: default;
+`;
+
 const Header = (): ReactElement => {
   return (
     <StyledDiv>
@@ -41,7 +45,7 @@ const Header = (): ReactElement => {
         <GithubIcon />
       </StyledA>
       <Divider dividerType="vertical" />
-      <div>Banner Maker</div>
+      <StyledTitle>Banner Maker</StyledTitle>
       <StyledH1>velog를 위한 배너 메이커입니다. :)</StyledH1>
     </StyledDiv>
   );
