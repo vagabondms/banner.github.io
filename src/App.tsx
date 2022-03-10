@@ -26,10 +26,6 @@ const StyledDiv = styled.div`
   position: relative;
 `;
 
-export const Layout = ({ children, ...rest }: ILayoutProps): ReactElement => {
-  return <StyledDiv {...rest}>{children}</StyledDiv>;
-};
-
 const App = (): ReactElement => {
   const bannerRef = useRef<HTMLDivElement>(null);
 
@@ -51,7 +47,7 @@ const App = (): ReactElement => {
   return (
     <>
       <Header />
-      <Layout>
+      <StyledDiv>
         <Banner ref={bannerRef} />
         <InputBox />
         <BackgroundBox />
@@ -64,7 +60,7 @@ const App = (): ReactElement => {
             }}
           ></Button>
         </Wrapper>
-      </Layout>
+      </StyledDiv>
     </>
   );
 };
