@@ -1,9 +1,22 @@
 import React, { forwardRef } from 'react';
 
-import BannerBackground from '@atoms/BannerBackground';
-import BannerText from '@atoms/BannerText';
-import Wrapper from '@atoms/Wrapper';
+import Wrapper from '@components/Wrapper';
+import styled from '@emotion/styled';
 import { useData } from '@hooks/useDataContext';
+import { justifying } from '@styles/css';
+
+const BannerBackground = styled.div`
+  ${justifying.centering}
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px 0;
+  position: relative;
+`;
+
+const BannerText = styled.div`
+  white-space: nowrap;
+  ${justifying.centering}
+`;
 
 const Preview = forwardRef<HTMLDivElement>((_, ref) => {
   const {

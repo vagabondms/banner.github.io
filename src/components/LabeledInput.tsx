@@ -1,9 +1,12 @@
-import React, { InputHTMLAttributes, ReactElement, HTMLAttributes, ChangeEvent } from 'react';
+import React, { ChangeEvent, HTMLAttributes, InputHTMLAttributes, ReactElement } from 'react';
 
+import Label from '@components/Label';
+import Wrapper from '@components/Wrapper';
 import styled from '@emotion/styled';
 import { border, colors, fonts, sizing, spacing } from '@styles/css';
 
-export interface IInputProp extends HTMLAttributes<HTMLInputElement> {
+interface ILabeledInputProps extends HTMLAttributes<HTMLInputElement> {
+  name: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   type: 'text' | 'number';
@@ -30,8 +33,13 @@ const StyledInput = styled.input<TStyledInputProp>`
   }
 `;
 
-const Input = (props: IInputProp): ReactElement => {
-  return <StyledInput {...props} />;
+const LabeledInput = ({ name, ...rest }: ILabeledInputProps): ReactElement => {
+  return (
+    <Wrapper wrapperType="label">
+      <Label htmlFor={name}>{name}</Label>
+      <StyledInput id={name} {...rest}></StyledInput>
+    </Wrapper>
+  );
 };
 
-export default Input;
+export default LabeledInput;

@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 
-import Divider from '@atoms/Divider';
-import SlidingModal from '@atoms/SlidingModal';
-import { TSlidingModalProps } from '@atoms/SlidingModal';
+import Divider from '@components/Divider';
+import LabeledSelector from '@components/LabeledSelector';
+import LabeledToggle from '@components/LabeledToggle';
+import SlidingModal from '@components/SlidingModal';
+import { TSlidingModalProps } from '@components/SlidingModal';
 import { useData } from '@hooks/useDataContext';
-import LabeledSelector from '@molecules/LabeledSelector';
-import LabeledToggle from '@molecules/LabeledToggle';
 import { fontSizeGenerator, fontGenerator } from '@utils/data';
 import { widthGenerator, heightGenerator } from '@utils/data';
 

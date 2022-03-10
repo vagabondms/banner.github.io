@@ -1,4 +1,4 @@
-import { TOptions } from '@atoms/Selector';
+import { TOptions } from '@components/LabeledSelector';
 
 export const fontGenerator = (): TOptions => {
   return [

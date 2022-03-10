@@ -26,7 +26,9 @@ export type Key = keyof TData;
 
 interface IContext {
   data: TData;
-  onChangeHandler: (key: keyof TData) => (e: boolean | ColorResult | ChangeEvent<HTMLInputElement>) => void;
+  onChangeHandler: (
+    key: keyof TData,
+  ) => (e: boolean | ColorResult | ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const dataContext = createContext<IContext>({
@@ -50,24 +52,25 @@ const dataContext = createContext<IContext>({
 export const Provider = ({ children }: IProviderProps): ReactElement => {
   const [data, setData] = useState(initialState);
 
-  const onChangeHandler = (key: Key) => (e: boolean | ColorResult | ChangeEvent<HTMLInputElement>) => {
-    if (typeof e === 'boolean') {
-      setData((prev) => ({
-        ...prev,
-        [key]: e,
-      }));
-    } else if ('hex' in e) {
-      setData((prev) => ({
-        ...prev,
-        [key]: e.hex,
-      }));
-    } else {
-      setData((prev) => ({
-        ...prev,
-        [key]: e.target.value,
-      }));
-    }
-  };
+  const onChangeHandler =
+    (key: Key) => (e: boolean | ColorResult | ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+      if (typeof e === 'boolean') {
+        setData((prev) => ({
+          ...prev,
+          [key]: e,
+        }));
+      } else if ('hex' in e) {
+        setData((prev) => ({
+          ...prev,
+          [key]: e.hex,
+        }));
+      } else {
+        setData((prev) => ({
+          ...prev,
+          [key]: e.target.value,
+        }));
+      }
+    };
 
   useEffect(() => {
     const localStorageData = getDataFromLocalStorage('data');

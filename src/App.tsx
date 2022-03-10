@@ -1,14 +1,34 @@
-import React, { ReactElement, useRef } from 'react';
+import React, { ReactElement, useRef, CSSProperties, ReactNode } from 'react';
 
-import Button from '@atoms/Button';
-import { Layout } from '@atoms/Layout';
-import Wrapper from '@atoms/Wrapper';
+import BackgroundBox from '@components/BackgroundBox';
+import Banner from '@components/Banner';
+import Button from '@components/Button';
+import Header from '@components/Header';
+import InputBox from '@components/InputBox';
+import Wrapper from '@components/Wrapper';
+import styled from '@emotion/styled';
 import { useData } from '@hooks/useDataContext';
-import Banner from '@molecules/Banner';
-import Header from '@molecules/Header';
-import BackgroundBox from '@organisms/BackgroundBox';
-import InputBox from '@organisms/InputBox';
 import capture from 'html2canvas';
+
+export interface ILayoutProps {
+  children: ReactElement[] | ReactElement | ReactNode;
+  style?: CSSProperties;
+}
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  height: calc(100% - 50px);
+  position: relative;
+`;
+
+export const Layout = ({ children, ...rest }: ILayoutProps): ReactElement => {
+  return <StyledDiv {...rest}>{children}</StyledDiv>;
+};
 
 const App = (): ReactElement => {
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -16,16 +36,15 @@ const App = (): ReactElement => {
   const {
     data: { title },
   } = useData();
+
   const captureImage = async () => {
-    if (bannerRef.current) {
-      const result = await capture(bannerRef.current);
-      if (result) {
-        const link = document.createElement('a');
-        const underbarTitle = title.replaceAll(/(\s)+/g, '_');
-        link.download = `${underbarTitle}.png`;
-        link.href = result?.toDataURL() ?? '';
-        link.click();
-      }
+    const result = await capture(bannerRef.current as HTMLDivElement);
+    if (result) {
+      const link = document.createElement('a');
+      const underbarTitle = title.replaceAll(/(\s)+/g, '_');
+      link.download = `${underbarTitle}.png`;
+      link.href = result?.toDataURL() ?? '';
+      link.click();
     }
   };
 
@@ -34,7 +53,7 @@ const App = (): ReactElement => {
       <Header />
       <Layout>
         <Banner ref={bannerRef} />
-        <InputBox></InputBox>
+        <InputBox />
         <BackgroundBox />
         <Wrapper wrapperType="button">
           <Button

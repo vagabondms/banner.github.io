@@ -53,18 +53,6 @@ const StyledButton = styled.button<TStyledButtonProps>`
     box-shadow: none;
     animation: none;
   }
-
-  /* @keyframes shake {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(-1deg);
-    }
-    100% {
-      transform: rotate(1deg);
-    }
-  } */
 `;
 
 const Button = ({ text, onClick, ...rest }: IButtonProps): ReactElement => {

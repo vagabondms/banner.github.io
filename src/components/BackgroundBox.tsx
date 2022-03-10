@@ -1,10 +1,10 @@
 import React, { ReactElement, useState } from 'react';
 
-import Button from '@atoms/Button';
-import Wrapper from '@atoms/Wrapper';
+import Button from '@components/Button';
+import LabeledColorPicker from '@components/LabeledColorPicker';
+import SlidingMenu from '@components/SlidingMenu';
+import Wrapper from '@components/Wrapper';
 import { useData } from '@hooks/useDataContext';
-import LabeledColorPicker from '@molecules/LabeledColorPicker';
-import SlidingMenu from '@organisms/SlidingMenu';
 
 const BackgroundBox = (): ReactElement => {
   const [visible, setVisible] = useState(false);

@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 
+import Label from '@components/Label';
+import Wrapper from '@components/Wrapper';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { border, colors, justifying, sizing } from '@styles/css';
@@ -12,6 +14,10 @@ export interface TToggleProps {
 
 type TStyledToggleOuterProps = Omit<TToggleProps, 'onClick'>;
 type TStyledToggleInnerProps = Omit<TToggleProps, 'onClick' | 'id'>;
+
+interface ILabeledToggleProps extends Omit<TToggleProps, 'id'> {
+  name: string;
+}
 
 const checkedHandlerOuter = ({ checked }: TStyledToggleInnerProps) => {
   switch (checked) {
@@ -76,16 +82,18 @@ const ToggleInner = styled.div<TStyledToggleInnerProps>`
   color: ${colors.orange};
 `;
 
-const Toggle = ({ checked, onClick, ...rest }: TToggleProps): ReactElement => {
+const LabeledInput = ({ name, checked, onClick, ...rest }: ILabeledToggleProps): ReactElement => {
   const onClickHandler = () => {
     onClick(!checked);
   };
-
   return (
-    <ToggleOuter checked={checked} onClick={onClickHandler} {...rest}>
-      <ToggleInner checked={checked}>{checked ? 'ON' : 'OFF'}</ToggleInner>
-    </ToggleOuter>
+    <Wrapper wrapperType="label">
+      <Label htmlFor={name}>{name}</Label>
+      <ToggleOuter id={name} checked={checked} onClick={onClickHandler} {...rest}>
+        <ToggleInner checked={checked}>{checked ? 'ON' : 'OFF'}</ToggleInner>
+      </ToggleOuter>
+    </Wrapper>
   );
 };
 
-export default Toggle;
+export default LabeledInput;
