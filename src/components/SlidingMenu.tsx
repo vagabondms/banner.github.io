@@ -17,12 +17,12 @@ const handleVisible = ({ isVisible: visible }: TSlidingMenuProps) => {
   switch (visible) {
     case true:
       return css`
-        left: 0;
+        transform: translateX(0px);
         opacity: 1;
       `;
     case false:
       return css`
-        left: -190px;
+        transform: translateX(-190px);
         opacity: 0;
         * {
           display: none;
@@ -43,6 +43,7 @@ const StyledDiv = styled.div`
   ${handleVisible};
   transition: 0.5s;
   padding: 40px;
+  left: 0;
 `;
 
 const InputBox = ({ isVisible }: TSlidingMenuProps): ReactElement => {
