@@ -3,22 +3,56 @@ import React, { ReactElement } from 'react';
 import Divider from '@components/Divider';
 import LabeledSelector from '@components/LabeledSelector';
 import LabeledToggle from '@components/LabeledToggle';
-import SlidingModal from '@components/SlidingModal';
-import { TSlidingModalProps } from '@components/SlidingModal';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import { useData } from '@hooks/useDataContext';
 import { fontSizeGenerator, fontGenerator } from '@utils/data';
 import { widthGenerator, heightGenerator } from '@utils/data';
 
-type TSlidingMenuProps = TSlidingModalProps;
+type TSlidingMenuProps = {
+  isVisible: boolean;
+};
 
-const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
+const handleVisible = ({ isVisible: visible }: TSlidingMenuProps) => {
+  switch (visible) {
+    case true:
+      return css`
+        left: 0;
+        opacity: 1;
+      `;
+    case false:
+      return css`
+        left: -190px;
+        opacity: 0;
+        * {
+          display: none;
+        }
+      `;
+    default:
+      return css``;
+  }
+};
+const StyledDiv = styled.div`
+  height: 100%;
+  position: absolute;
+  width: 190px;
+  top: 0;
+  bottom: 0;
+  background-color: #3c4246;
+  z-index: 1;
+  ${handleVisible};
+  transition: 0.5s;
+  padding: 40px;
+`;
+
+const InputBox = ({ isVisible }: TSlidingMenuProps): ReactElement => {
   const {
     data: { width, height, font, titleFontSize, subTitleFontSize, tagFontSize, underline },
     onChangeHandler,
   } = useData();
 
   return (
-    <SlidingModal visible={visible}>
+    <StyledDiv isVisible={isVisible}>
       <LabeledSelector name="폰트" value={font} onChange={onChangeHandler('font')} options={fontGenerator()}></LabeledSelector>
       <Divider dividerType="parallel" />
       <LabeledSelector
@@ -54,7 +88,7 @@ const InputBox = ({ visible }: TSlidingMenuProps): ReactElement => {
       ></LabeledSelector>
       <Divider dividerType="parallel" />
       <LabeledToggle name="밑줄 설정" checked={underline} onClick={onChangeHandler('underline')}></LabeledToggle>
-    </SlidingModal>
+    </StyledDiv>
   );
 };
 

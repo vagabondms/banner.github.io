@@ -1,17 +1,25 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 
 import Button from '@components/Button';
 import LabeledColorPicker from '@components/LabeledColorPicker';
-import SlidingMenu from '@components/SlidingMenu';
 import Wrapper from '@components/Wrapper';
 import { useData } from '@hooks/useDataContext';
 
-const BackgroundBox = (): ReactElement => {
-  const [visible, setVisible] = useState(false);
+type BackgroundBoxProps = {
+  handleBanner: (isOpen: boolean) => void;
+  isVisible: boolean;
+};
+
+const BackgroundBox = ({ handleBanner, isVisible }: BackgroundBoxProps): ReactElement => {
   const {
     data: { backgroundColor, fontColor },
     onChangeHandler,
   } = useData();
+
+  const handleButtonClick = () => {
+    handleBanner(!isVisible);
+  };
+
   return (
     <Wrapper wrapperType="box">
       <Wrapper wrapperType="sub">
@@ -28,15 +36,7 @@ const BackgroundBox = (): ReactElement => {
           onChange={onChangeHandler('backgroundColor')}
         ></LabeledColorPicker>
       </Wrapper>
-
-      <Button
-        style={{ marginTop: 38 }}
-        text={`추가 설정 ${visible ? '닫기' : '열기'}`}
-        onClick={() => {
-          setVisible(!visible);
-        }}
-      ></Button>
-      <SlidingMenu visible={visible}></SlidingMenu>
+      <Button style={{ marginTop: 38 }} text={`추가 설정 ${isVisible ? '닫기' : '열기'}`} onClick={handleButtonClick}></Button>
     </Wrapper>
   );
 };

@@ -1,10 +1,11 @@
-import React, { ReactElement, useRef, CSSProperties, ReactNode } from 'react';
+import React, { ReactElement, useRef, CSSProperties, ReactNode, useState } from 'react';
 
 import BackgroundBox from '@components/BackgroundBox';
 import Banner from '@components/Banner';
 import Button from '@components/Button';
 import Header from '@components/Header';
 import InputBox from '@components/InputBox';
+import SlidingMenu from '@components/SlidingMenu';
 import Wrapper from '@components/Wrapper';
 import styled from '@emotion/styled';
 import { useData } from '@hooks/useDataContext';
@@ -28,7 +29,7 @@ const StyledDiv = styled.div`
 
 const App = (): ReactElement => {
   const bannerRef = useRef<HTMLDivElement>(null);
-
+  const [isVisible, setIsVisible] = useState(false);
   const {
     data: { title },
   } = useData();
@@ -44,13 +45,17 @@ const App = (): ReactElement => {
     }
   };
 
+  const handleBanner = (isOpen: boolean) => {
+    setIsVisible(isOpen);
+  };
+
   return (
     <>
       <Header />
       <StyledDiv>
         <Banner ref={bannerRef} />
         <InputBox />
-        <BackgroundBox />
+        <BackgroundBox isVisible={isVisible} handleBanner={handleBanner} />
         <Wrapper wrapperType="button">
           <Button
             text="다운로드"
@@ -60,6 +65,7 @@ const App = (): ReactElement => {
             }}
           ></Button>
         </Wrapper>
+        <SlidingMenu isVisible={isVisible}></SlidingMenu>
       </StyledDiv>
     </>
   );
