@@ -13,7 +13,7 @@ type BackgroundBoxProps = {
 const BackgroundBox = ({ handleBanner, isVisible }: BackgroundBoxProps): ReactElement => {
   const {
     data: { backgroundColor, fontColor },
-    onChangeHandler,
+    colorHandler,
   } = useData();
 
   const handleButtonClick = () => {
@@ -26,14 +26,14 @@ const BackgroundBox = ({ handleBanner, isVisible }: BackgroundBoxProps): ReactEl
         <LabeledColorPicker
           pickerPosition="top"
           color={fontColor}
-          onChange={onChangeHandler('fontColor')}
+          onChange={colorHandler('fontColor')}
           name="폰트색"
         ></LabeledColorPicker>
         <LabeledColorPicker
           name="배경색"
           pickerPosition="top"
           color={backgroundColor}
-          onChange={onChangeHandler('backgroundColor')}
+          onChange={colorHandler('backgroundColor')}
         ></LabeledColorPicker>
       </Wrapper>
       <Button style={{ marginTop: 38 }} text={`추가 설정 ${isVisible ? '닫기' : '열기'}`} onClick={handleButtonClick}></Button>

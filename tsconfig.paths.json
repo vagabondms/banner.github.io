@@ -6,11 +6,11 @@
       "@utils/*": ["src/utils/*"],
       "@containers/*": ["src/containers/*"],
       "@components/*": ["src/components/*"],
-
       "@organisms/*": ["src/components/organisms/*"],
       "@styles/*": ["src/styles/*"],
       "@css": ["src/styles/css"],
       "@styles": ["src/styles"],
+      "@data/*": ["src/data/*"],
       "@/*": ["src/*"]
     }
   }

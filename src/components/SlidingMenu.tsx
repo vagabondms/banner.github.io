@@ -49,46 +49,47 @@ const StyledDiv = styled.div`
 const InputBox = ({ isVisible }: TSlidingMenuProps): ReactElement => {
   const {
     data: { width, height, font, titleFontSize, subTitleFontSize, tagFontSize, underline },
-    onChangeHandler,
+    selectHandler,
+    booleanHandler,
   } = useData();
 
   return (
     <StyledDiv isVisible={isVisible}>
-      <LabeledSelector name="폰트" value={font} onChange={onChangeHandler('font')} options={fontGenerator()}></LabeledSelector>
+      <LabeledSelector name="폰트" value={font} onChange={selectHandler('font')} options={fontGenerator()}></LabeledSelector>
       <Divider dividerType="parallel" />
       <LabeledSelector
         name="제목"
         value={titleFontSize}
-        onChange={onChangeHandler('titleFontSize')}
+        onChange={selectHandler('titleFontSize')}
         options={fontSizeGenerator('title')}
       ></LabeledSelector>
       <LabeledSelector
         name="부제목"
         value={subTitleFontSize}
-        onChange={onChangeHandler('subTitleFontSize')}
+        onChange={selectHandler('subTitleFontSize')}
         options={fontSizeGenerator('subTitle')}
       ></LabeledSelector>
       <LabeledSelector
         name="태그"
         value={tagFontSize}
-        onChange={onChangeHandler('titleFontSize')}
+        onChange={selectHandler('titleFontSize')}
         options={fontSizeGenerator('tag')}
       ></LabeledSelector>
       <Divider dividerType="parallel" />
       <LabeledSelector
         options={widthGenerator()}
         value={width}
-        onChange={onChangeHandler('width')}
+        onChange={selectHandler('width')}
         name="배경 넓이"
       ></LabeledSelector>
       <LabeledSelector
         options={heightGenerator()}
         value={height}
-        onChange={onChangeHandler('height')}
+        onChange={selectHandler('height')}
         name="배경 높이"
       ></LabeledSelector>
       <Divider dividerType="parallel" />
-      <LabeledToggle name="밑줄 설정" checked={underline} onClick={onChangeHandler('underline')}></LabeledToggle>
+      <LabeledToggle name="밑줄 설정" checked={underline} onClick={booleanHandler('underline')}></LabeledToggle>
     </StyledDiv>
   );
 };

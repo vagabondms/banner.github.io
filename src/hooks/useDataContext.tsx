@@ -1,76 +1,61 @@
-import React, { useContext, createContext, ReactElement, useEffect, useState, ChangeEvent } from 'react';
+import React, { ChangeEvent, createContext, ReactElement, useContext, useEffect, useState } from 'react';
 import { ColorResult } from 'react-color';
 
+import { ColorValues, Data, SelectValues, InputValues } from '@data/data';
 import { getDataFromLocalStorage, setDataInLocalStorage } from '@utils/localStorage';
+
 export interface IProviderProps {
   children: ReactElement;
 }
 
-const initialState = {
-  title: '',
-  subTitle: '',
-  tag: '',
-  font: 'RIDIBatang',
-  height: 350,
-  width: 700,
-  titleFontSize: 55,
-  subTitleFontSize: 25,
-  tagFontSize: 15,
-  fontColor: '#533535',
-  backgroundColor: '#E6CCA9',
-  underline: true,
+const initialState = new Data();
+
+type IContext = {
+  data: Data;
+  //! onChangeHandler를 분리해야함
+  booleanHandler: (key: 'underline') => (e: boolean) => void;
+  colorHandler: (key: ColorValues) => (e: ColorResult) => void;
+  inputHandler: (key: InputValues) => (e: ChangeEvent<HTMLInputElement>) => void;
+  selectHandler: (key: SelectValues) => (e: ChangeEvent<HTMLSelectElement>) => void;
 };
 
-export type TData = typeof initialState;
-export type Key = keyof TData;
-
-interface IContext {
-  data: TData;
-  onChangeHandler: (
-    key: keyof TData,
-  ) => (e: boolean | ColorResult | ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => void;
-}
-
 const dataContext = createContext<IContext>({
-  data: {
-    title: '',
-    subTitle: '',
-    tag: '',
-    height: 0,
-    width: 0,
-    font: '',
-    fontColor: '',
-    backgroundColor: '',
-    titleFontSize: 0,
-    subTitleFontSize: 0,
-    tagFontSize: 0,
-    underline: true,
-  },
-  onChangeHandler: () => () => {},
+  data: initialState,
+  booleanHandler: () => () => {},
+  colorHandler: () => () => {},
+  inputHandler: () => () => {},
+  selectHandler: () => () => {},
 });
 
 export const Provider = ({ children }: IProviderProps): ReactElement => {
   const [data, setData] = useState(initialState);
 
-  const onChangeHandler =
-    (key: Key) => (e: boolean | ColorResult | ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
-      if (typeof e === 'boolean') {
-        setData((prev) => ({
-          ...prev,
-          [key]: e,
-        }));
-      } else if ('hex' in e) {
-        setData((prev) => ({
-          ...prev,
-          [key]: e.hex,
-        }));
-      } else {
-        setData((prev) => ({
-          ...prev,
-          [key]: e.target.value,
-        }));
-      }
-    };
+  //TODO: Refactoring 대상임
+
+  const booleanHandler = (key: 'underline') => (e: boolean) => {
+    setData((prev) => ({
+      ...prev,
+      [key]: e,
+    }));
+  };
+  const colorHandler = (key: ColorValues) => (e: ColorResult) => {
+    setData((prev) => ({
+      ...prev,
+      [key]: e.hex,
+    }));
+  };
+  const inputHandler = (key: InputValues) => (e: ChangeEvent<HTMLInputElement>) => {
+    setData((prev) => ({
+      ...prev,
+      [key]: e.target.value,
+    }));
+  };
+  const selectHandler = (key: SelectValues) => (e: ChangeEvent<HTMLSelectElement>) => {
+    setData((prev) => ({
+      ...prev,
+      [key]: e.target.value,
+    }));
+  };
 
   useEffect(() => {
     const localStorageData = getDataFromLocalStorage('data');
@@ -88,7 +73,10 @@ export const Provider = ({ children }: IProviderProps): ReactElement => {
 
   const value = {
     data,
-    onChangeHandler,
+    booleanHandler,
+    colorHandler: colorHandler,
+    inputHandler,
+    selectHandler,
   };
 
   return <dataContext.Provider value={value}>{children}</dataContext.Provider>;
